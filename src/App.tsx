@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Login from './paginas/login/Login';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <>
-    <h1>Dandara will be the best project imo</h1>
+      <Router>
+
+        <Route exact path='/'>             <Login />           </Route>
+
+      </Router>
     </>
   );
 }
