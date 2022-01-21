@@ -6,7 +6,6 @@ function PorQueDandara() {
     return (
         <>
             <Grid alignItems="center" item xs={6}>
-                
             </Grid>
         </>
     )

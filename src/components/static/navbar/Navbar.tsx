@@ -59,7 +59,6 @@ function Navbar() {
           <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
             <Box display="flex" alignItems="center">
               <img src="./logo.png" alt="" className="navbar-logo" />
-
               <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
                 Início
               </Typography>
