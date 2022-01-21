@@ -1,12 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Footer from './components/static/footer/Footer';
+
 import './App.css';
 
 function App() {
   return (
-    <>
-    <h1>Dandara will be the best project imo</h1>
-    </>
+    <Router>
+      <Footer />
+    </Router>
   );
 }
 
