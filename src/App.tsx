@@ -8,7 +8,7 @@ function App() {
     <>
       <Router>
 
-        <Route exact path='/'>             <Login />           </Route>
+        <Route exact path='/'>     <Login />     </Route>
 
       </Router>
     </>
