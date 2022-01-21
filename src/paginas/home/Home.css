@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+
+.postagens{
+    background-color: black !important;
+}
+
+.titulo{
+   
+    font-family: 'Montserrat', sans-serif;
+
+ 
+}
+
+.text{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+
+    
+}
+
+.img{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
