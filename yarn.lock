@@ -1462,6 +1462,16 @@
     "prop-types" "^15.7.2"
     "react-is" "^16.8.0 || ^17.0.0"
 
+"@mdi/js@^6.5.95":
+  "integrity" "sha512-x/bwEoAGP+Mo10Dfk5audNIPi7Yz8ZBrILcbXLW3ShOI/njpgodzpgpC2WYK3D2ZSC392peRRemIFb/JsyzzYQ=="
+  "resolved" "https://registry.npmjs.org/@mdi/js/-/js-6.5.95.tgz"
+  "version" "6.5.95"
+
+"@mdi/react@^1.5.0":
+  "integrity" "sha512-NztRgUxSYD+ImaKN94Tg66VVVqXj4SmlDGzZoz48H9riJ+Awha56sfXH2fegw819NWo7KI3oeS1Es0lNQqwr0w=="
+  "resolved" "https://registry.npmjs.org/@mdi/react/-/react-1.5.0.tgz"
+  "version" "1.5.0"
+
 "@mui/core@5.0.0-alpha.53":
   "integrity" "sha512-dTwuhzE0puewJ+/Cw35iAiaBGVcZqVyqspheQHVJuhysSd+o58SONRAiM6MQgI/iFKiJ57HKh+En1MwuC7DMLw=="
   "resolved" "https://registry.npmjs.org/@mui/core/-/core-5.0.0-alpha.53.tgz"
