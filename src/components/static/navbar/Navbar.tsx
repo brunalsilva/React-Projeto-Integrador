@@ -7,6 +7,7 @@ import { styled, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -58,17 +59,24 @@ function Navbar() {
         <Toolbar>
           <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
             <Box display="flex" alignItems="center">
-              <img src="./logo.png" alt="" className="navbar-logo" />
-              <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                Início
-              </Typography>
-              <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                Login
-              </Typography>
-              <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                Cadastre-se
-              </Typography>
-
+              <Link to='/home' className='text-decoration-none' >
+                <img src="./logo.png" alt="" className="navbar-logo" />
+              </Link>
+              <Link to='/home' className='text-decoration-none' >
+                <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                  Início
+                </Typography>
+              </Link>
+              <Link to='/login' className='text-decoration-none' >
+                <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                  Login
+                </Typography>
+              </Link>
+              <Link to='/cadastrousuario' className='text-decoration-none' >
+                <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                  Cadastre-se
+                </Typography>
+              </Link>
             </Box>
             <Box display="flex" height={30}>
 

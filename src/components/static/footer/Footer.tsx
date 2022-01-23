@@ -26,7 +26,9 @@ function Footer() {
                             </Box>
                         </Box>
                         <Box className='logoFooter'>
-                            <img src="./logo.png" alt="logo dandara" className='logoDandaraFooter' />
+                            <Link to='/home' className='text-decoration-none' >
+                                <img src="./logo.png" alt="logo dandara" className='logoDandaraFooter' />
+                            </Link>
                         </Box>
                     </Box>
                     <Box className='box2'>
