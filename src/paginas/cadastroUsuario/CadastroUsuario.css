@@ -31,3 +31,13 @@
     font-family: 'Noto Sans', sans-serif !important;
     font-weight: bold !important;
 }
+
+/*cor do contorno do formulário quando clicado */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+	border-color: #f3e8ca !important; 
+}
+
+/*cor do texto do formulário quando clicado */
+ .MuiFormLabel-root.Mui-focused {
+    color: black !important;
+}

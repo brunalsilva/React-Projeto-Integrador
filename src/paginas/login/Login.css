@@ -1,16 +1,26 @@
 .textos {
-    font-weight: 'bold';
+  font-weight: "bold";
 }
 
 .imagens {
-    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
-    background-repeat: no-repeat;
-    width: 100vh;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
+  background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
+  background-repeat: no-repeat;
+  width: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 
 .text-decorator-none {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+/*cor do contorno do formulário quando clicado */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #f3e8ca !important;
+}
+
+/*cor do texto do formulário quando clicado */
+.MuiFormLabel-root.Mui-focused {
+  color: black !important;
 }
