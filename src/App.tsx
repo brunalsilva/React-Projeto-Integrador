@@ -32,6 +32,8 @@ function App() {
             <Route path='/cadastrousuario'>
               <CadastroUsuario />
             </Route>
+
+
           </div>
         </Switch>
         <Footer />
@@ -41,3 +43,10 @@ function App() {
 }
 
 export default App;
+
+/*          <Route exact path='/formularioProduto:id'>
+              <CadastroProduto />
+            </Route>
+            <Route exact path='/formularioCategoria:id'>
+              <CadastroCategoria />
+              </Route>*/ 
