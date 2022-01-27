@@ -1,14 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
+
 .textos {
   font-weight: "bold";
 }
 
-.imagens {
-  background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
-  background-repeat: no-repeat;
-  width: 100vh;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
+.entrar {
+  font-weight: bolder !important;
+  font-family: 'Montserrat', sans-serif !important;
+  color: #f3e8ca !important;
+  font-size: 45px !important;
 }
 
 .text-decorator-none {
@@ -23,4 +23,74 @@
 /*cor do texto do formulário quando clicado */
 .MuiFormLabel-root.Mui-focused {
   color: black !important;
+}
+
+.ilustracao-login {
+  background-image: url(login.png);
+  background-repeat: no-repeat;
+  width: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.MuiButton-containedSecondary {
+    color: #0a0a0a !important;
+    background-color: #cb8018 !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    font-weight: bold !important;
+}
+
+.MuiButton-containedPrimary {
+    color: #0a0a0a !important;
+    background-color: #D5D52C !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    font-weight: bold !important;
+}
+
+/*cor do contorno do formulário quando clicado */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+	border-color: #f3e8cac2 !important;
+}
+
+/*cor do texto do formulário quando clicado */
+ .MuiFormLabel-root.Mui-focused {
+    color: #f3e8ca !important;
+}
+
+.MuiInputBase-input {
+    color: #f3e8ca !important;
+}
+
+/* .MuiOutlinedInput-input {
+    border: 1px solid #D5D52C !important;
+    border-radius: 4px;
+}
+
+.MuiOutlinedInput-root:hover {
+    border-color:#D5D52C !important;
+    border-radius: 4px;
+} */
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: #f3e8cac2 !important;
+}
+
+.MuiFormLabel-root {
+    color: #f3e8cac2 !important;
+}
+
+.padding-inside-box {
+    padding: 40px;
+}
+
+.ntemconta {
+  font-family: 'Noto Sans', sans-serif !important;
+  color: #f3e8cac2;
+}
+
+.cadastre-se {
+  font-family: 'Noto Sans', sans-serif !important;
+  font-weight: bold !important;
+  color: #D5D52C;
 }

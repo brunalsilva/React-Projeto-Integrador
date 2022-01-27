@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
 
-.imagem2{
+.ilustracao-cadastro{
     background-image: url(Login-rafiki.png);
     background-repeat: no-repeat;
     width: 100vh;
@@ -9,9 +9,11 @@
     background-position: center;
 }
 
-.textos2{
-    font-weight: bold !important;
+.cadastrar{
+    font-weight: bolder !important;
     font-family: 'Montserrat', sans-serif !important;
+    color: #f3e8ca !important;
+    font-size: 45px !important;
 }
 
 .btnCancelar{
@@ -20,24 +22,50 @@
 
 .MuiButton-containedSecondary {
     color: #0a0a0a !important;
-    background-color: #BF2301 !important;
+    background-color: #cb8018 !important;
     font-family: 'Noto Sans', sans-serif !important;
     font-weight: bold !important;
 }
 
 .MuiButton-containedPrimary {
     color: #0a0a0a !important;
-    background-color: #e9e90d !important;
+    background-color: #D5D52C !important;
     font-family: 'Noto Sans', sans-serif !important;
     font-weight: bold !important;
 }
 
 /*cor do contorno do formulário quando clicado */
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-	border-color: #f3e8ca !important; 
+	border-color: #f3e8cac2 !important;
 }
 
 /*cor do texto do formulário quando clicado */
  .MuiFormLabel-root.Mui-focused {
-    color: black !important;
+    color: #f3e8ca !important;
+}
+
+.MuiInputBase-input {
+    color: #f3e8ca !important;
+}
+
+/* .MuiOutlinedInput-input {
+    border: 1px solid #D5D52C !important;
+    border-radius: 4px;
+}
+
+.MuiOutlinedInput-root:hover {
+    border-color:#D5D52C !important;
+    border-radius: 4px;
+} */
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: #f3e8cac2 !important;
+}
+
+.MuiFormLabel-root {
+    color: #f3e8cac2 !important;
+}
+
+.padding-inside-box {
+    padding: 40px;
 }
