@@ -8,6 +8,11 @@ import './App.css';
 import Navbar from './components/static/navbar/Navbar';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import ListaCategoria from './components/categorias/listacategoria/ListaCategoria';
+import ListaProduto from './components/produtos/listaproduto/ListaProduto';
+import CadastroProd from './components/produtos/cadastroProd/CadastroProd';
+import CadastroCategoria from './components/categorias/cadastroCategoria/CadastroCategoria';
+import DeletarCategoria from './components/categorias/deleterCategoria/DeletarCategoria';
 
 
 function App() {
@@ -33,7 +38,27 @@ function App() {
               <CadastroUsuario />
             </Route>
 
-
+            <Route path='/categorias'>
+              <ListaCategoria />
+            </Route>
+            <Route path='/produtos'>
+              <ListaProduto />
+            </Route>
+            <Route exact path='/formularioProduto'>
+              <CadastroProd />
+            </Route>
+            <Route exact path='/formularioProduto/:id'>
+              <CadastroProd />
+            </Route>
+            <Route exact path='/formularioCategoria'>
+              <CadastroCategoria />
+            </Route>
+            <Route exact path='/formularioCategoria/:id'>
+              <CadastroCategoria />
+            </Route>
+            <Route path='/deletarCategoria/:id'>
+              <DeletarCategoria />
+            </Route>
           </div>
         </Switch>
         <Footer />
@@ -43,10 +68,3 @@ function App() {
 }
 
 export default App;
-
-/*          <Route exact path='/formularioProduto:id'>
-              <CadastroProduto />
-            </Route>
-            <Route exact path='/formularioCategoria:id'>
-              <CadastroCategoria />
-              </Route>*/ 
