@@ -6,6 +6,7 @@ import Categoria from '../../../models/Categoria';
 import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
+import User from '../../../models/User';
 
 
 function CadastroProd() {
@@ -13,6 +14,8 @@ function CadastroProd() {
     const { id } = useParams<{ id: string }>();
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const [token, setToken] = useLocalStorage('token');
+    const [idUser, setIdUser] = useLocalStorage('id');
+
 
     const [categoria, setCategoria] = useState<Categoria>(
         {
@@ -42,10 +45,19 @@ function CadastroProd() {
         usuario: null
     })
 
+    const [user, setUser] = useState<User>({
+        id:Number.parseInt(idUser),
+        nome: '',
+        usuario:'',
+        senha:''
+
+    })
+
     useEffect(() => {
         setProduto({
             ...produto,
-            categoria: categoria
+            categoria: categoria,
+            usuario:user
         })
     }, [categoria])
 
@@ -93,12 +105,12 @@ function CadastroProd() {
             })
             alert('Produto atualizado com sucesso');
         } else {
-          /*  post(`/produto`, produto, setProduto, {
+            post(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
-            }) */
-            console.log(produto);
+            }) 
+            
         }
         back()
 

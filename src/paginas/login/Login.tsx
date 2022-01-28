@@ -9,6 +9,7 @@ import './Login.css';
 function Login() {
     let history = useHistory();
     const [token, setToken] = useLocalStorage('token');
+    const [id, setId] = useLocalStorage('id');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -17,6 +18,14 @@ function Login() {
             token: ''
         }
         )
+        const [userLoginResult, setUserLoginResult] = useState<UserLogin>(
+            {
+                id: 0,
+                usuario: '',
+                senha: '',
+                token: ''
+            }
+            )
 
         function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
@@ -27,15 +36,17 @@ function Login() {
         }
 
             useEffect(()=>{
-                if(token != ''){
+                if(userLoginResult.token != ''){
+                  setToken(userLoginResult.token)
+                  setId(userLoginResult.id.toString())
                     history.push('/home')
                 }
-            }, [token])
+            }, [userLoginResult.token])
 
         async function onSubmit(e: ChangeEvent<HTMLFormElement>){
             e.preventDefault();
             try{
-                await login(`/usuarios/logar`, userLogin, setToken)
+                await login(`/usuarios/logar`, userLogin, setUserLoginResult)
 
                 alert('Usuário logado com sucesso!');
             }catch(error){
