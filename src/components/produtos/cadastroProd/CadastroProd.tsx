@@ -14,6 +14,14 @@ function CadastroProd() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const [token, setToken] = useLocalStorage('token');
 
+    const [categoria, setCategoria] = useState<Categoria>(
+        {
+            id: 0,
+            descricao: '',
+            nome: '',
+            palavraChave: ''
+        })
+
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")
@@ -22,22 +30,16 @@ function CadastroProd() {
         }
     }, [token])
 
-    const [categoria, setCategoria] = useState<Categoria>(
-        {
-            id: 0,
-            descricao: '',
-            nome: '',
-            palavraChave: ''
-        })
     const [produto, setProduto] = useState<Produto>({
         id: 0,
+        preco: 0,
         nome: '',
         quantidade: 0,
         servico: true,
         foto: '',
         descricao: '',
-        preco: 0,
-        categoria: null
+        categoria: null,
+        usuario: null
     })
 
     useEffect(() => {
@@ -91,12 +93,12 @@ function CadastroProd() {
             })
             alert('Produto atualizado com sucesso');
         } else {
-            post(`/produto`, produto, setProduto, {
+          /*  post(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
-            })
-            alert('Produto cadastrado com sucesso');
+            }) */
+            console.log(produto);
         }
         back()
 
@@ -109,7 +111,7 @@ function CadastroProd() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto</Typography>
                 <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
                 <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
                 <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
