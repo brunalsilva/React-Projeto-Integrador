@@ -46,10 +46,10 @@ function CadastroProd() {
     })
 
     const [user, setUser] = useState<User>({
-        id:Number.parseInt(idUser),
+        id: Number.parseInt(idUser),
         nome: '',
-        usuario:'',
-        senha:''
+        usuario: '',
+        senha: ''
 
     })
 
@@ -57,7 +57,7 @@ function CadastroProd() {
         setProduto({
             ...produto,
             categoria: categoria,
-            usuario:user
+            usuario: user
         })
     }, [categoria])
 
@@ -109,8 +109,8 @@ function CadastroProd() {
                 headers: {
                     'Authorization': token
                 }
-            }) 
-            
+            })
+
         }
         back()
 
