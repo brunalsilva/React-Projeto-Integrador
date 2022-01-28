@@ -33,7 +33,7 @@ function CadastroProd() {
         id: 0,
         nome: '',
         quantidade: 0,
-        servico: false,
+        servico: true,
         foto: '',
         descricao: '',
         preco: 0,
@@ -103,7 +103,7 @@ function CadastroProd() {
     }
 
     function back() {
-        history.push('/produto')
+        history.push('/produtos')
     }
 
     return (
