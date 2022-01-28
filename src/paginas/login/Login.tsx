@@ -5,6 +5,8 @@ import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     let history = useHistory();
@@ -17,7 +19,7 @@ function Login() {
             token: ''
         }
     )
-
+    
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUserLogin({
@@ -33,6 +35,19 @@ function Login() {
     }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        if(userLogin.senha.length < 8){
+            toast.error('Sua senha deve conter no mínimo 8 caracteres',{
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+            });
+    };
+    
         e.preventDefault();
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
