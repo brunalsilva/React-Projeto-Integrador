@@ -6,6 +6,7 @@ import Categoria from '../../../models/Categoria';
 import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
+import User from '../../../models/User';
 
 
 function CadastroProd() {
@@ -13,6 +14,16 @@ function CadastroProd() {
     const { id } = useParams<{ id: string }>();
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const [token, setToken] = useLocalStorage('token');
+    const [idUser, setIdUser] = useLocalStorage('id');
+
+
+    const [categoria, setCategoria] = useState<Categoria>(
+        {
+            id: 0,
+            descricao: '',
+            nome: '',
+            palavraChave: ''
+        })
 
     useEffect(() => {
         if (token == "") {
@@ -22,28 +33,31 @@ function CadastroProd() {
         }
     }, [token])
 
-    const [categoria, setCategoria] = useState<Categoria>(
-        {
-            id: 0,
-            descricao: '',
-            nome: '',
-            palavraChave: ''
-        })
     const [produto, setProduto] = useState<Produto>({
         id: 0,
+        preco: 0,
         nome: '',
         quantidade: 0,
-        servico: false,
+        servico: true,
         foto: '',
         descricao: '',
-        preco: 0,
-        categoria: null
+        categoria: null,
+        usuario: null
+    })
+
+    const [user, setUser] = useState<User>({
+        id: Number.parseInt(idUser),
+        nome: '',
+        usuario: '',
+        senha: ''
+
     })
 
     useEffect(() => {
         setProduto({
             ...produto,
-            categoria: categoria
+            categoria: categoria,
+            usuario: user
         })
     }, [categoria])
 
@@ -96,20 +110,20 @@ function CadastroProd() {
                     'Authorization': token
                 }
             })
-            alert('Produto cadastrado com sucesso');
+
         }
         back()
 
     }
 
     function back() {
-        history.push('/produto')
+        history.push('/produtos')
     }
 
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto</Typography>
                 <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
                 <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
                 <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />

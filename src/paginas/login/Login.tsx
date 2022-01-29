@@ -5,12 +5,13 @@ import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+//import { ToastContainer, toast } from 'react-toastify';
+//import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     let history = useHistory();
     const [token, setToken] = useLocalStorage('token');
+    const [id, setId] = useLocalStorage('id');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -18,8 +19,17 @@ function Login() {
             senha: '',
             token: ''
         }
+
     )
-    
+    const [userLoginResult, setUserLoginResult] = useState<UserLogin>(
+        {
+            id: 0,
+            usuario: '',
+            senha: '',
+            token: ''
+        }
+    )
+
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUserLogin({
@@ -28,14 +38,17 @@ function Login() {
         })
     }
 
+
     useEffect(() => {
-        if (token != '') {
+        if (userLoginResult.token != '') {
+            setToken(userLoginResult.token)
+            setId(userLoginResult.id.toString())
             history.push('/home')
         }
-    }, [token])
+    }, [userLoginResult.token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-        if(userLogin.senha.length < 8){
+        /*if(userLogin.senha.length < 8){
             toast.error('Sua senha deve conter no mínimo 8 caracteres',{
             position: "top-right",
             autoClose: 2500,
@@ -45,24 +58,25 @@ function Login() {
             draggable: false,
             theme: "colored",
             progress: undefined,
-            });
-    };
-    
+            });  */
+
         e.preventDefault();
         try {
-            await login(`/usuarios/logar`, userLogin, setToken)
+            await login(`/usuarios/logar`, userLogin, setUserLoginResult)
 
             alert('Usuário logado com sucesso!');
         } catch (error) {
             alert('Dados do usuário inconsistentes. Erro ao logar!');
         }
+
     }
+
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid alignItems='center' xs={6}>
                 <Box paddingX={10} paddingY={10}>
-                    <Box className='box-fundo-opaca alinhamento-box'>
+                    <Box className='box-fundo-opaca'>
                         <form onSubmit={onSubmit}>
                             <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='entrar'>Entrar</Typography>
                             <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
@@ -88,5 +102,6 @@ function Login() {
         </Grid>
     );
 }
+
 
 export default Login;

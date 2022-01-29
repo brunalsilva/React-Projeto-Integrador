@@ -44,7 +44,7 @@ function ListaProduto() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom>
-                    Postagens
+                    Produto
                   </Typography>
                   <Typography variant="h5" component="h2">
                     {produto.nome}
