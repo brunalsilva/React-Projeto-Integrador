@@ -94,3 +94,6 @@
   font-weight: bold !important;
   color: #D5D52C;
 }
+.alinhamento-box {
+  align-items: center !important;
+}
