@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
+
+.box-fundo-opaca-sobrenos {
+    background-color: #0a0a0a98;
+    height: 300px;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.foto {
+    background-size:contain;
+    background-repeat:round;
+    border-radius: 20px;
+    width: 130px;
+    height: 130px;
+    margin: 20px;
+}
+
+.foto-bruna {
+    background-image: url(bruna.jpg);
+}
+
+.foto-eduardo {
+    background-image: url(eduardo.jpeg);
+}
+
+.foto-larissa {
+    background-image: url(larissa.jpeg);
+}
+
+.foto-kayque {
+    background-image: url(kayque.jpeg);
+}
+
+.foto-marcela {
+    background-image: url(marcela.jpeg);
+}
+
+.nome {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: bold !important;
+    color: #f3e8ca;
+    font-size: 20px !important;
+}
+
+.inside-box {
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    color: #f3e8ca;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0px 6px;
+}
+
+.icon:hover {
+    color: #131212;
+}
+
+.titulo-sobrenos {
+    font-family: 'Noto Sans', sans-serif !important;
+    font-weight: bold !important;
+    color: #131212;
+    font-size: 35px !important;
+    margin-top: 35px !important;
+}
