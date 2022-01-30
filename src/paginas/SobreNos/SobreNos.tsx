@@ -8,7 +8,7 @@ function SobreNos() {
     return (
         <Grid container alignItems="center" item xs={12}>
             <Grid container justifyContent='center' alignItems="center" item xs={12}>
-                <Typography className='titulo-sobrenos'>Nossa equipe de desenvolvimento
+                <Typography className='titulo-sobrenos'>Conheça a nossa equipe de desenvolvimento
                 </Typography>
             </Grid> 
             <Box display="flex" marginTop={6}>
