@@ -16,6 +16,7 @@ import DeletarCategoria from './components/categorias/deleterCategoria/DeletarCa
 import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import FaleConosco from './paginas/FaleConosco/FaleConosco';
 
 
 function App() {
