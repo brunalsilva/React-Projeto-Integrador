@@ -11,7 +11,7 @@ function Home() {
                 <Grid alignItems="center" item xs={12}>
                     <Box>
                         <img src={banner} alt="banner com o nome dandara" className="banner"/>
-                        <img src={bannerHome} alt="banner com promoções de verão" className="banner home" />
+                        <img src={bannerHome} alt="banner com promoções de verão" className="bannerHome"/>
                         <Typography gutterBottom component="h5" align="center" className='text'>[produtos]</Typography>
                     </Box>
                 </Grid>
