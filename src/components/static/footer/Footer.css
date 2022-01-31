@@ -70,3 +70,13 @@
     text-decoration: none;
 }
 
+@media only screen and (min-width: 29.8125rem /*477px*/) {
+    .box1 {
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 77.5rem /*1240px*/ ) {
+    .box1 {
+        justify-content: space-evenly;
+    }
+}
