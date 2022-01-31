@@ -55,6 +55,9 @@ function ListaProduto() {
                   <Typography variant="body2" component="p">
                     {produto.categoria?.descricao}
                   </Typography>
+                  <Typography variant="h5" component="h2">
+                    {produto.servico.toString()}
+                  </Typography>
                 </CardContent>
                 <CardActions>
                   <Box display="flex" justifyContent="center" mb={1.5}>
