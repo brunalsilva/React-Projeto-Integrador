@@ -2,12 +2,16 @@ import React from "react";
 import './Navbar.css';
 import { AppBar, Box, InputBase, Toolbar } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
-import { IconButton } from '@mui/material';
+import { Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
+import { Logout, PersonAdd } from "@mui/icons-material";
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,6 +56,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Navbar() {
+
+  // drop down menu funcoes e estados - inicio
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  // drop down menu - fim
+
   return (
 
     <Box sx={{ flexGrow: 1 }}>
@@ -62,43 +78,154 @@ function Navbar() {
               <Link to='/home' className='text-decoration-none' >
                 <img src="./logo.png" alt="" className="navbar-logo" />
               </Link>
-              <Link to='/home' className='text-decoration-none' >
-                <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                  Início
-                </Typography>
-              </Link>
-              <Link to='/login' className='text-decoration-none' >
-                <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                  Login
-                </Typography>
-              </Link>
-              <Link to='/cadastrousuario' className='text-decoration-none' >
-                <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                  Cadastre-se
-                </Typography>
-              </Link>
+              <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                <Link to='/home' className='text-decoration-none' >
+                  <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                    Início
+                  </Typography>
+                </Link>
+                <Link to='/login' className='text-decoration-none' >
+                  <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                    Login
+                  </Typography>
+                </Link>
+                <Link to='/cadastrousuario' className='text-decoration-none' >
+                  <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                    Cadastre-se
+                  </Typography>
+                </Link>
+              </Box>
             </Box>
             <Box display="flex" height={30}>
 
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon className="color-appbar" />
-                </SearchIconWrapper>
-                <StyledInputBase className="color-appbar"
-                  placeholder="Buscar..."
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search>
+              <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon className="color-appbar" />
+                  </SearchIconWrapper>
+                  <StyledInputBase className="color-appbar"
+                    placeholder="Buscar..."
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                </Search>
+              </Box>
 
-              <ShoppingCartIcon  className="color-appbar cart-icon"/>
+              <ShoppingCartIcon className="color-appbar cart-icon" />
 
-              <IconButton className="drop-menu color-appbar" size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }}>
-                <MenuIcon />
-              </IconButton>
+              {/* drop down menu e elementos internos */}
+
+              <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+                <Tooltip title="Account settings">
+                  <IconButton
+                    className="drop-menu color-appbar"
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleClick}
+                    aria-controls={open ? 'account-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                onClick={handleClose}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: 'visible',
+                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                    mt: 1.5,
+                    bgcolor: '#D5D52C',
+                    '& .MuiAvatar-root': {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    '&:before': {
+                      content: '""',
+                      display: 'block',
+                      position: 'absolute',
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: '#D5D52C',
+                      transform: 'translateY(-50%) rotate(45deg)',
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+              >
+                <MenuItem>
+                  <Link to="/produtos" className="text-decorator-none">
+                    <ListItemIcon>
+                      <Inventory2Icon />
+                    </ListItemIcon>
+                    Produtos
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/produtos" className="text-decorator-none">
+                    <ListItemIcon>
+                      <PersonOutlineRoundedIcon />
+                    </ListItemIcon>
+                    Serviços
+                  </Link>
+                </MenuItem>
+
+                <Divider />
+
+
+                <MenuItem sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                  <ListItemIcon>
+                    <AccountCircleIcon />
+                  </ListItemIcon>
+                  Login
+                </MenuItem>
+                <MenuItem sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                  <ListItemIcon>
+                    <PersonAdd fontSize="small" />
+                  </ListItemIcon>
+                  Cadastre-se
+                </MenuItem>
+
+
+
+                <MenuItem>
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
+              </Menu>
+
+              {/* fim drop down menu */}
 
             </Box>
           </Box>
         </Toolbar>
+        <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon className="color-appbar" />
+            </SearchIconWrapper>
+            <StyledInputBase className="color-appbar"
+              placeholder="Buscar..."
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+        </Box>
       </AppBar>
     </Box>
   );

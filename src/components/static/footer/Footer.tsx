@@ -19,10 +19,14 @@ function Footer() {
                                 </Link>
                             </Box>
                             <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
-                                <Typography variant="h5" align="center" gutterBottom className='texto1'>Sobre nós</Typography>
+                                <Link to='/sobrenos' className='text-decoration-none' >
+                                    <Typography variant="h5" align="center" gutterBottom className='texto1'>Sobre nós</Typography>
+                                </Link>
                             </Box>
                             <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
-                                <Typography variant="h5" align="center" gutterBottom className='texto1'>Fale conosco</Typography>
+                                <Link to='/faleconosco' className='text-decoration-none' >
+                                    <Typography variant="h5" align="center" gutterBottom className='texto1'>Fale conosco</Typography>
+                                </Link>
                             </Box>
                         </Box>
                         <Box className='logoFooter'>

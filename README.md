@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+<h1 align="center"> Dandara Projeto-Integrador </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ <p align="center">
+<img src="https://raw.githubusercontent.com/brunalsilva/React-Projeto-Integrador/c1324aa64366b7c705856a157b9141c9025754e3/src/Componentes%20gr%C3%A1ficos/logo-extenso.svg" style="width: 65%;">
+</p>
 
-## Available Scripts
+<h2><img src="https://img.icons8.com/stickers/40/settings-3.png"> Tecnologias  utilizadas :<h2>
+<br>
+<table align="center" style=" width: 60%" >
+  <tr>
+    <td align="center">
+    <img  src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/40/external-java-is-a-general-purpose-programming-language-that-is-class-based-logo-shadow-tal-revivo.png">
+    <td align="center">
+   <img  src="https://img.icons8.com/color/40/html-5--v1.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/color/40/heroku.png">
+   <td align="center">
+     <img  src="https://img.icons8.com/color/40/mysql-logo.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/ios-glyphs/40/github.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/color/40/typescript.png">
+   <td align="center">
+   <img  src="https://pivotal.gallerycdn.vsassets.io/extensions/pivotal/vscode-boot-dev-pack/0.1.0/1629148309593/Microsoft.VisualStudio.Services.Icons.Default"style="width: 30px">
+   <td align="center">
+   <img  src="https://img.icons8.com/color/40/visual-studio-code-2019.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/40/external-postman-is-the-only-complete-api-development-environment-logo-color-tal-revivo.png">
+    <td align="center">
+     <img  src="https://img.icons8.com/color/40/figma--v1.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/color/40/javascript--v1.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/color/40/git.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/color/40/cloud-function.png">
+   <td align="center">
+   <img  src="https://img.icons8.com/officexs/40/java-eclipse.png">
+   <td align="center">
+    <img  src="https://img.icons8.com/office/40/react.png">
+   
+     
+     
+  </tr>
+</table>
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+<br>
+  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br>
+<br>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2> DevTeams <img  src="https://img.icons8.com/external-soft-fill-juicy-fish/40/external-layered-waterfall-development-soft-fill-soft-fill-juicy-fish.png"></h2>
+  
+  <table align="center">
+  <tr>
+    <td align="center">
+    <img  src="https://avatars.githubusercontent.com/u/90981638?v=4" style="width: 100px; border-radius: 5%">
+    <h4><b>Bruna Silva</b></h4>
+      <a href="https://www.linkedin.com/in/bruna-silva-671402224/" target="_blank"><img src="https://img.icons8.com/fluency/26/linkedin-circled.png" target="_blank"></a> 
+      <a href="https://github.com/brunalsilva" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/889/889111.png" target="_blank"></a> 
+    <td align="center">
+    <img  src="https://avatars.githubusercontent.com/u/93776128?v=4" style="width: 100px; border-radius: 5%">
+    <h4><b>Eduardo Sousa</b></h4>
+      <a href="https://www.linkedin.com/in/eduardo-sousa-519518185" target="_blank"><img src="https://img.icons8.com/fluency/26/linkedin-circled.png" target="_blank"></a> 
+      <a href="https://github.com/Edu-sousa"><img src="https://cdn-icons-png.flaticon.com/24/889/889111.png" target="_blank"></a> 
+    <td align="center">
+      <img  src="https://avatars.githubusercontent.com/u/71715700?v=4" style="width: 100px; border-radius: 5%">
+    <h4><b>Kayque Gonçalves</b></h4>
+     <a href="www.linkedin.com/in/kayque-gonçalves" target="_blank"><img src="https://img.icons8.com/fluency/26/linkedin-circled.png" target="_blank"></a> 
+      <a href="https://github.com/kayqueG" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/889/889111.png" target="_blank"></a> 
+    <td align="center">
+    <img  src="https://avatars.githubusercontent.com/u/93736645?v=4" style="width: 100px; border-radius: 5%">
+       <h4><b>Larissa Silva</b></h4>
+      <a href="https://www.linkedin.com/in/devlarissa/" target="_blank"><img src="https://img.icons8.com/fluency/26/linkedin-circled.png" target="_blank"></a> 
+      <a href="https://github.com/devlarissa" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/889/889111.png" target="_blank"/></a> 
+   <td align="center">
+    <img  src="https://avatars.githubusercontent.com/u/90520505?v=4" style="width: 100px; border-radius: 5%">
+    <h4><b>Marcela Almeida</b></h4>
+      <a href="https://www.linkedin.com/in/marcela-almeida-094291175/" target="_blank"><img src="https://img.icons8.com/fluency/26/linkedin-circled.png" target="_blank"></a> 
+      <a href="https://github.com/almeidamarcelah" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/889/889111.png" target="_blank"></a> 
+</table>
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
