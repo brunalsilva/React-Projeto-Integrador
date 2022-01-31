@@ -16,6 +16,10 @@
     margin-bottom: 8px !important;
 }
 
+.texto1:hover {
+    color: #dddd91 !important;
+}
+
 .texto2 {
     color: #D5D52C;
     font-size: 14px !important;
@@ -53,6 +57,10 @@
     padding-left: 8px;
 }
 
+.logoDandaraFooter:hover {
+    opacity: 0.8 !important;
+}
+
 .logoDandaraFooter {
     width: 100px;
     height: 100px;
@@ -60,4 +68,15 @@
 
 .text-decoration-none {
     text-decoration: none;
+}
+
+@media only screen and (min-width: 29.8125rem /*477px*/) {
+    .box1 {
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 77.5rem /*1240px*/ ) {
+    .box1 {
+        justify-content: space-evenly;
+    }
 }
