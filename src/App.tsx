@@ -19,6 +19,8 @@ import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto'
 import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import SobreNos from './paginas/SobreNos/SobreNos';
+import FaleConosco from './paginas/FaleConosco/FaleConosco';
 
 
 
@@ -44,6 +46,12 @@ function App() {
             </Route>
             <Route path='/cadastrousuario'>
               <CadastroUsuario />
+            </Route>
+            <Route path='/sobrenos'>
+              <SobreNos />
+            </Route>
+            <Route path='/faleconosco'>
+              <FaleConosco />
             </Route>
 
             <Route path='/categorias'>

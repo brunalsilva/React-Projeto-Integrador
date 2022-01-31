@@ -61,8 +61,8 @@ function CadastroUsuario() {
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10} paddingY={10}>
                     <Box className='box-fundo-opaca'>
-                        <form onSubmit={onSubmit} className='padding-inside-box'>
-                            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='cadastrar'>Cadastrar</Typography>
+                        <form onSubmit={onSubmit} className='inside-box-cadastro'>
+                            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='cadastrar'>Cadastre-se</Typography>
                             <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
                             <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
                             <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />

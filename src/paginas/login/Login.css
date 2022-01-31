@@ -33,7 +33,7 @@
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
@@ -74,7 +74,6 @@
     border: 1px solid #D5D52C !important;
     border-radius: 4px;
 }
-
 .MuiOutlinedInput-root:hover {
     border-color:#D5D52C !important;
     border-radius: 4px;
@@ -101,4 +100,9 @@
     font-family: 'Noto Sans', sans-serif !important;
     font-weight: bold !important;
     color: #D5D52C;
+}
+
+.inside-box-login {
+    padding: 40px;
+    margin: 20px;
 }
