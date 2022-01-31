@@ -103,7 +103,7 @@ function CadastroProd() {
     }
 
     function back() {
-        history.push('/produto')
+        history.push('/produtos')
     }
 
     return (
