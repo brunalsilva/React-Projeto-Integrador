@@ -41,8 +41,6 @@ function App() {
             </Route>
             <Route path='/home'>
               <Home />
-              <ListaProduto/>
-              <ListaServico/>
             </Route>
             <Route path='/login'>
               <Login />
