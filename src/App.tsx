@@ -21,6 +21,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import SobreNos from './paginas/SobreNos/SobreNos';
 import FaleConosco from './paginas/FaleConosco/FaleConosco';
+import ListaServico from './components/servicos/listaservico/ListaServico';
 
 
 
@@ -29,54 +30,73 @@ function App() {
     <Provider store={store}>
       <ToastContainer />
       <Router>
-        <Navbar />
+        
         <Switch>
           <div style={{ minHeight: '100vh' }} className='background'>
             <Route path='/PorQueDandara'>
+            <Navbar />
               <PorQueDandara />
             </Route>
             <Route exact path='/'>
+            <Navbar />
               <Home />
             </Route>
             <Route path='/home'>
+            <Navbar />
               <Home />
             </Route>
             <Route path='/login'>
+            <Navbar />
               <Login />
             </Route>
             <Route path='/cadastrousuario'>
+            <Navbar />
               <CadastroUsuario />
             </Route>
             <Route path='/sobrenos'>
+            <Navbar />
               <SobreNos />
             </Route>
             <Route path='/faleconosco'>
+            <Navbar />
               <FaleConosco />
             </Route>
 
             <Route path='/categorias'>
+            <Navbar />
               <ListaCategoria />
             </Route>
             <Route path='/produtos'>
+            <Navbar />
               <ListaProduto />
             </Route>
             <Route exact path='/formularioProduto'>
+            <Navbar />
               <CadastroProd />
             </Route>
             <Route exact path='/formularioProduto/:id'>
+            <Navbar />
               <CadastroProd />
             </Route>
             <Route exact path='/formularioCategoria'>
+            <Navbar />
               <CadastroCategoria />
             </Route>
             <Route exact path='/formularioCategoria/:id'>
+            <Navbar />
               <CadastroCategoria />
             </Route>
             <Route path='/deletarCategoria/:id'>
+            <Navbar />
               <DeletarCategoria />
             </Route>
             <Route path='/deletarProduto/:id'>
+            <Navbar />
               <DeletarProduto />
+            </Route>
+            <Route path='/servicos'>
+            <Navbar />
+              <ListaServico/>
             </Route>
 
 
