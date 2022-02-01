@@ -40,13 +40,13 @@ function ListaProduto() {
     return (
       <>
         {
-          produtos.map(produto => (
+          produtos.map(produto => produto.servico.toString()=="true"? (
             <Box m={2} >
               <Card variant="outlined" sx={{maxWidth:345}}>
                 <CardMedia component="img" height="194" image={produto.foto} alt="Paella dish"/>
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom>
-                    Produto
+                    {produto.servico.toString()=="true"?"Produto":""}
                   </Typography>
                   <Typography variant="h5" component="h2">
                     {produto.nome}
@@ -83,7 +83,7 @@ function ListaProduto() {
                 </CardActions>
               </Card>
             </Box>
-          ))
+          ):'')
         }
       </>
     )

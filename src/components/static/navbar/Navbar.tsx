@@ -176,15 +176,16 @@ function Navbar() {
                   </Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/produtos" className="text-decorator-none">
+                  <Link to="/servicos" className="text-decorator-none">
                     <ListItemIcon>
                       <PersonOutlineRoundedIcon />
                     </ListItemIcon>
                     Serviços
                   </Link>
                 </MenuItem>
-
+                
                 <Divider />
+
 
 
                 <MenuItem sx={{ display: { xs: 'flex', sm: 'none' } }}>
