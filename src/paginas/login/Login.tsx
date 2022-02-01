@@ -73,9 +73,10 @@ function Login() {
 
 
     return (
+        <>
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid alignItems='center' xs={6}>
-                <Box paddingX={10} paddingY={10}>
+            <Grid alignItems='center' lg={6} md={8}  xs={12}>
+                <Box sx={{ p: {lg: "150px", sm:'100px' } }}>
                     <Box className='box-fundo-opaca'>
                         <form onSubmit={onSubmit} className='inside-box-login'>
                             <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='entrar'>Entrar</Typography>
@@ -98,8 +99,11 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} className='ilustracao-login'></Grid>
+            <Grid lg={6} md={4} xs={1} >
+                <Box  sx={{ display: { xs: 'none', md: 'block' } }} className='ilustracao-login'></Box>
+            </Grid>
         </Grid>
+        </>
     );
 }
 
