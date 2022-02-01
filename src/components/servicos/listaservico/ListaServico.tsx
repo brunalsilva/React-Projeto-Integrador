@@ -57,7 +57,9 @@ function ListaServico() {
                                     {servico.categoria?.descricao}
                                 </Typography>
                                 <Typography variant="body2" component="p">
-                                    {servico.preco}
+                                <b>
+                                R$ {servico.preco}
+                                    </b> 
                                 </Typography>
                                 <Typography variant="body2" component="p"></Typography>
                             </CardContent>

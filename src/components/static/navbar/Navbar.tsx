@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
 import { Logout, PersonAdd } from "@mui/icons-material";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import AddIcon from '@mui/icons-material/Add';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
@@ -181,6 +182,14 @@ function Navbar() {
                       <PersonOutlineRoundedIcon />
                     </ListItemIcon>
                     Serviços
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/formularioProduto" className="text-decorator-none">
+                    <ListItemIcon>
+                      <AddIcon />
+                    </ListItemIcon>
+                    Adicionar produto
                   </Link>
                 </MenuItem>
                 
