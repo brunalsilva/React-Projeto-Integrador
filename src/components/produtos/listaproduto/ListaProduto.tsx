@@ -13,6 +13,7 @@ import { CardMedia, Card} from '@mui/material';
 function ListaProduto() {
     const [produtos, setProdutos] = useState<Produto[]>([])
     const [token, setToken] = useLocalStorage('token');
+    
     let history = useHistory();
   
     useEffect(() => {
