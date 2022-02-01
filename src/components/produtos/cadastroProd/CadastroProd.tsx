@@ -1,16 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
 import './CadastroProd.css';
-import { Link, Route, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import User from '../../../models/User';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
+import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 
 
 function CadastroProd() {
@@ -19,16 +16,27 @@ function CadastroProd() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const [token, setToken] = useLocalStorage('token');
     const [idUser, setIdUser] = useLocalStorage('id');
-    const [value, setValue] = React.useState(true);
 
-
+    const [value, setValue] = React.useState('female');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(
+        // alert(event.target.value)
+        setValue((event.target as HTMLInputElement).value);
+        updatedProduto(event)
+    };
 
-           Boolean((event.target as HTMLInputElement).value)
-        )
-    }
+    const [produto, setProduto] = useState<Produto>({
+        id: 0,
+        preco: 0,
+        nome: '',
+        quantidade: 0,
+        servico: true,
+        foto: '',
+        descricao: '',
+        categoria: null,
+        usuario: null
+    })
+
 
 
 
@@ -49,17 +57,6 @@ function CadastroProd() {
     }, [token])
 
 
-    const [produto, setProduto] = useState<Produto>({
-        id: 0,
-        preco: 0,
-        nome: '',
-        quantidade: 0,
-        servico: true,
-        foto: '',
-        descricao: '',
-        categoria: null,
-        usuario: null
-    })
 
     const [user, setUser] = useState<User>({
         id: Number.parseInt(idUser),
@@ -101,7 +98,6 @@ function CadastroProd() {
     }
 
     function updatedProduto(e: ChangeEvent<HTMLInputElement>) {
-
         setProduto({
             ...produto,
             [e.target.name]: e.target.value,
@@ -121,9 +117,6 @@ function CadastroProd() {
             })
             alert('Produto atualizado com sucesso');
         } else {
-            console.log('funcao')
-
-
             post(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
@@ -136,30 +129,36 @@ function CadastroProd() {
     }
 
     function back() {
-        if (value == true) {
-
-            history.push('/produtos');
-
-        }
-        else {
-            history.push('/servicos');
-        }
+        history.push('/produtos')
     }
 
-
-
     return (
-        <>
-            <Container maxWidth="sm" className="topo">
-                <form onSubmit={onSubmit}>
-                    <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar Produto / Serviço</Typography>
-                    <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                    <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" name="foto" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preco" name="preco" variant="outlined" margin="normal" fullWidth />
+        <Container maxWidth="sm" className="topo">
+            <form onSubmit={onSubmit}>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto/serviço</Typography>
+                <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
+                <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" name="foto" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preco" name="preco" variant="outlined" margin="normal" fullWidth />
 
 
+                <FormControl>
+                    <FormLabel id="demo-controlled-radio-buttons-group">Tipo</FormLabel>
+                    <RadioGroup
+                        aria-labelledby="demo-controlled-radio-buttons-group"
+                        name="servico"
+                        value={value}
+                        onChange={handleChange}
+                        row
+                    >
+                        <FormControlLabel value={true} control={<Radio />} label="Produto" />
+                        <FormControlLabel value={false} control={<Radio />} label="Serviço" />
+
+                    </RadioGroup>
+                </FormControl>
+                <br></br>
+                <FormControl>
                     <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
@@ -175,35 +174,16 @@ function CadastroProd() {
                             ))
                         }
                     </Select>
-                    <FormHelperText>Escolha uma categoria </FormHelperText>
-
-                    <FormControl component="fieldset" >
-                        <FormLabel component="legend">Tipo</FormLabel>
-                        <RadioGroup aria-label="Tipo" name="" value={value} onChange={handleChange}>
-                            <FormControlLabel value={true} control={<Radio />} label="Produto" />
-                            <FormControlLabel  control={<Radio />} label="Serviço" />
-                        </RadioGroup>
-
-                        <Button type="submit" variant="contained" color="primary">
-                            Finalizar
-                        </Button>
-
-
-
-
-                    </FormControl>
-                </form>
-            </Container>
-
-
-        </>
-
+                    <FormHelperText>Escolha uma categoria para  o produto</FormHelperText>
+                    <Button type="submit" variant="contained" color="primary">
+                        Finalizar
+                    </Button>
+                </FormControl>
+            </form>
+        </Container>
     )
-
 }
 export default CadastroProd;
-
-
 
 
 

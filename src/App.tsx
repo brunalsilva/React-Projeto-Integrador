@@ -80,7 +80,7 @@ function App() {
               <DeletarProduto />
             </Route>
             <Route path='/servicos'>
-              <ListaServico />
+              <ListaServico/>
             </Route>
 
 

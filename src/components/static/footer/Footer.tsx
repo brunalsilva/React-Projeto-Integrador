@@ -11,7 +11,7 @@ function Footer() {
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box className='box1' display='flex'>
+                    <Box className='box1' display='flex' flex-wrap>
                         <Box className='box3'>
                             <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
                                 <Link to='/PorQueDandara' className='text-decoration-none' >

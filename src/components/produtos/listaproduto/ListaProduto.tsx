@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service'
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Box, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaProduto.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
+import { CardMedia, Card} from '@mui/material';
 
 
 
@@ -39,12 +40,13 @@ function ListaProduto() {
     return (
       <>
         {
-          produtos.map(produto => (
+          produtos.map(produto => produto.servico.toString()=="true"? (
             <Box m={2} >
-              <Card variant="outlined">
+              <Card variant="outlined" sx={{maxWidth:345}}>
+                <CardMedia component="img" height="194" image={produto.foto} alt="Paella dish"/>
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom>
-                    Produto
+                    {produto.servico.toString()=="true"?"Produto":""}
                   </Typography>
                   <Typography variant="h5" component="h2">
                     {produto.nome}
@@ -55,9 +57,10 @@ function ListaProduto() {
                   <Typography variant="body2" component="p">
                     {produto.categoria?.descricao}
                   </Typography>
-                  <Typography variant="h5" component="h2">
-                    {produto.servico.toString()}
+                  <Typography variant="body2" component="p">
+                    {produto.preco}
                   </Typography>
+                  <Typography variant="body2" component="p"></Typography>
                 </CardContent>
                 <CardActions>
                   <Box display="flex" justifyContent="center" mb={1.5}>
@@ -80,7 +83,7 @@ function ListaProduto() {
                 </CardActions>
               </Card>
             </Box>
-          ))
+          ):'')
         }
       </>
     )
