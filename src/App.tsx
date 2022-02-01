@@ -21,6 +21,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import SobreNos from './paginas/SobreNos/SobreNos';
 import FaleConosco from './paginas/FaleConosco/FaleConosco';
+import ListaServico from './components/servicos/listaservico/ListaServico';
 
 
 
@@ -40,6 +41,8 @@ function App() {
             </Route>
             <Route path='/home'>
               <Home />
+              <ListaProduto/>
+              <ListaServico/>
             </Route>
             <Route path='/login'>
               <Login />
@@ -77,6 +80,9 @@ function App() {
             </Route>
             <Route path='/deletarProduto/:id'>
               <DeletarProduto />
+            </Route>
+            <Route path='/servicos'>
+              <ListaServico/>
             </Route>
 
 
