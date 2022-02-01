@@ -22,7 +22,6 @@ export default function FaleConosco() {
                                    <label>Email</label>
                                    <input type="email" required placeholder="Seu email" name="email" />
                               </div>
-
                               <div>
                                    <label>Mensagem</label>
                                    <textarea required placeholder="Sua mensagem" name="message"></textarea>
