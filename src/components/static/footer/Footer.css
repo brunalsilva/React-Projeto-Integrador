@@ -16,6 +16,10 @@
     margin-bottom: 8px !important;
 }
 
+.texto1:hover {
+    color: #dddd91 !important;
+}
+
 .texto2 {
     color: #D5D52C;
     font-size: 14px !important;
@@ -51,6 +55,10 @@
     padding-top: 20px;
     padding-right: 60px;
     padding-left: 8px;
+}
+
+.logoDandaraFooter:hover {
+    opacity: 0.8 !important;
 }
 
 .logoDandaraFooter {
