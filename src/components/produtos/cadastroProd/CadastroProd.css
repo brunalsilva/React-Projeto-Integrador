@@ -1,9 +1,7 @@
 .box-fundo-opaca-cadastro {
     background-color: #0a0a0a98;
-    height: 300px;
-    margin: 10px;
+    height: 700px;
+    margin: 30px;
     border-radius: 20px;
-    padding: 30px;
-    
+    padding: 50px;
 }
-

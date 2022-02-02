@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
+import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Grid, Box } from "@material-ui/core"
 import './CadastroProd.css';
 import { useHistory, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
@@ -9,7 +9,7 @@ import { busca, buscaId, post, put } from '../../../services/Service';
 import User from '../../../models/User';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { Slide, toast } from 'react-toastify';
-import { Box, CardActions, CardContent, Grid } from '@material-ui/core';
+import { CardActions, CardContent } from '@material-ui/core';
 
 function CadastroProd() {
     let history = useHistory();
@@ -174,7 +174,9 @@ function CadastroProd() {
             <Grid container alignItems="center" item xs={12}>
                 <Box marginX={20} sx={{ maxWidth: 300, minHeight: 400 }} display="flex" alignItems="center" justifyContent="center" className='box-fundo-opaca-cadastro'>
                     <form onSubmit={onSubmit}>
-                        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto/serviço</Typography>
+
+                        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastro Produto/Serviço</Typography>
+
                         <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth required />
                         <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descriçao" name="descricao" variant="outlined" margin="normal" fullWidth required />
                         <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
