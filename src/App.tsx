@@ -6,7 +6,7 @@ import Footer from './components/static/footer/Footer';
 import PorQueDandara from './paginas/PorQueDandara/PorQueDandara';
 import './App.css';
 import Navbar from './components/static/navbar/Navbar';
-
+import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import ListaCategoria from './components/categorias/listacategoria/ListaCategoria';
 import ListaProduto from './components/produtos/listaproduto/ListaProduto';
@@ -22,7 +22,6 @@ import store from './store/store';
 import SobreNos from './paginas/SobreNos/SobreNos';
 import FaleConosco from './paginas/FaleConosco/FaleConosco';
 import ListaServico from './components/servicos/listaServico/ListaServico';
-import Login from './paginas/login/Login';
 
 
 

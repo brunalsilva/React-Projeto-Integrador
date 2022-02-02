@@ -14,7 +14,10 @@ import AddIcon from '@mui/icons-material/Add';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useLocalStorage from "react-use-localstorage";
+
 import { Slide, toast } from "react-toastify";
+
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -91,6 +94,7 @@ function Navbar() {
       transition: Slide,
      
   });
+
     history.push('/login')
   }
 

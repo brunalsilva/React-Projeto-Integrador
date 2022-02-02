@@ -3,7 +3,7 @@
 
 .box1 {
     background-color: #131212;
-    display: flex;
+    display:flex;
     justify-content: space-between;
 }
 
@@ -44,7 +44,7 @@
 .box3 {
     padding-top: 20px;
     padding-bottom: 20px;
-    align-items: center;
+    flex-direction: column;
 }
 
 .logoFooter {
@@ -68,4 +68,50 @@
 
 .text-decoration-none {
     text-decoration: none;
+}
+
+@media only screen and (max-width: 29.8125rem /*477px*/) {
+    .ft-main {
+        justify-content: space-around;
+    }
+    .box1 {
+        justify-content:space-between;
+        flex-direction:row;
+    }
+    .box2 {
+        justify-content:space-between;
+        flex-direction:row;
+    }
+    .box3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-direction: row;
+    }
+    .logoDandaraFooter {
+        width: 30px;
+        height: 30px;
+    }
+    .texto1 {
+        font-size: 13px !important;
+    }
+    .texto2 {
+        font-size: 9px !important;
+    }
+    .logoFooter {
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 30px;
+        padding-left: 25px;
+    }
+}
+@media only screen and (max-width: 77.5rem /*1240px*/ ) {
+    .ft-main {
+        justify-content: space-evenly;
+    }
+}
+.footer {
+    bottom: 0;
 }
