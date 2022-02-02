@@ -4,11 +4,11 @@ import User from './User'
 interface Produto{
     id: number;
     nome: string;
-    quantidade: number|null;
+    quantidade: number;
     servico: boolean;
     foto: string;
     descricao: string;
-    preco: number|null;
+    preco: number;
     categoria: Categoria| null
     usuario: User|null
 }

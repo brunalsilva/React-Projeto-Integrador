@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
 
 .card {
     background-color: #0a0a0a98 !important;
     border-radius: 20px !important;
-    margin-top: 18px !important;
 }
 .card-h2 {
     font-family: 'Orelega One', cursive !important;
@@ -14,14 +12,7 @@
 
 .card-descricao {
     font-family: 'Noto Sans', sans-serif !important;
-    color: #f3e8ca !important;
-}
-
-.card-categoria {
-    padding-top: 5px !important;
-    padding-bottom: 2px !important;
-    font-family: 'Overlock SC', cursive !important;
-    color: #f3e8cad2 !important;
+    color: #f3e8cad0 !important;
 }
 
 .card-secondary {
