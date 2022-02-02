@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
-
-.ilustracao-cadastro{
+.ilustracao-cadastro {
     background-image: url(Login-rafiki.png);
     background-repeat: no-repeat;
     width: 100vh;
@@ -9,14 +8,14 @@
     background-position: center;
 }
 
-.cadastrar{
+.cadastrar {
     font-weight: bolder !important;
     font-family: 'Montserrat', sans-serif !important;
     color: #f3e8ca !important;
     font-size: 45px !important;
 }
 
-.btnCancelar{
+.btnCancelar {
     margin-right: 20px !important;
 }
 
@@ -34,19 +33,24 @@
     font-weight: bold !important;
 }
 
+
 /*cor do contorno do formulário quando clicado */
-.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-	border-color: #f3e8cac2 !important;
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #f3e8cac2 !important;
 }
 
+
 /*cor do texto do formulário quando clicado */
- .MuiFormLabel-root.Mui-focused {
+
+.MuiFormLabel-root.Mui-focused {
     color: #f3e8ca !important;
 }
 
 .MuiInputBase-input {
     color: #f3e8ca !important;
 }
+
 
 /* .MuiOutlinedInput-input {
     border: 1px solid #D5D52C !important;
