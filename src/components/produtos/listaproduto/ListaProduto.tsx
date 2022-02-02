@@ -6,80 +6,112 @@ import { Box, CardActions, CardContent, Button, Typography, Grid } from '@materi
 import './ListaProduto.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
-import { CardMedia, Card} from '@mui/material';
+import { CardMedia, Card } from '@mui/material';
+import User from '../../../models/User';
 
 function ListaProduto() {
-    const [produtos, setProdutos] = useState<Produto[]>([])
-    const [token, setToken] = useLocalStorage('token');
-    const [idUser, setIdUser] = useLocalStorage('id');
-    
-    let history = useHistory();
-  
-    useEffect(() => {
-      if (token == "") {
-        alert("Você precisa estar logado")
-        history.push("/login")
-  
-      }
-    }, [token])
-  
-    async function getProduto() {
-      await busca("/produto", setProdutos, {
-        headers: {
-          'Authorization': token
-        }
-      })
+  const [produtos, setProdutos] = useState<Produto[]>([])
+  const [token, setToken] = useLocalStorage('token');
+  const [idUser, setIdUser] = useLocalStorage('id');
+  const [usuarios, setUsuarios] = useState<User[]>([])
+
+  let history = useHistory();
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisa estar logado")
+      history.push("/login")
+
     }
-  
-    useEffect(() => {
-  
-      getProduto()
-  
-    }, [produtos.length])
-  
-    return (
-      <>
-        <Grid container
-          direction="row"
-          justifyContent="space-between"
-          alignItems="flex-start" xs={12}>
+  }, [token])
+
+  async function getProduto() {
+    await busca("/produto", setProdutos, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  useEffect(() => {
+
+    getProduto()
+
+  }, [produtos.length])
+
+
+
+  useEffect(() => {
+
+    getProduto()
+  }, [produtos.length])
+
+
+
+  useEffect(() => {
+
+    getUsuario()
+
+  }, [usuarios.length])
+
+
+  async function getUsuario() {
+    await busca("/usuarios/all", setUsuarios, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+
+  //vetor com produtos do tipo produto
+  var produtosFiltrados = produtos.filter(produto => produto.servico.toString() == "true");
+
+
+
+  return (
+    <>
+      <Grid container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="flex-start" xs={12}>
         {
-          produtos.map(produto => produto.servico.toString()=="true"? (
+          produtosFiltrados.map(produto => produto.usuario?.id == parseInt(idUser) ? (
             <Box m={2}>
-              <Card variant="outlined" sx={{maxWidth:345}} className='card'>
-                <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome}/>
+              <Card variant="outlined" sx={{ maxWidth: 345 }} className='card'>
+                <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome} />
                 <CardContent>
-                    <Typography color="textSecondary" gutterBottom className='card-secondary'>
-                    {produto.servico.toString()=="true"?"Produto":""}
+                  <Typography color="textSecondary" gutterBottom className='card-secondary'>
+                    {produto.servico.toString() == "true" ? "Produto" : ""}
                   </Typography>
-                    <Typography variant="h5" component="h2" className='card-h2'>
+                  <Typography variant="h5" component="h2" className='card-h2'>
                     {produto.nome}
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-descricao'>
+                  <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.descricao}
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-descricao'>
+                  <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.categoria?.descricao}
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-preco'>
+                  <Typography variant="body2" component="p" className='card-preco'>
                     <b>R$ {produto.preco}</b>
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-preco'></Typography>
+                  <Typography variant="body2" component="p" className='card-preco'></Typography>
                 </CardContent>
                 <CardActions>
                   <Box display="flex" justifyContent="center" mb={1.5}>
-  
+
                     <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                       <Box mx={1}>
                         <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                          Salvar
+                          Atualizar
                         </Button>
                       </Box>
                     </Link>
                     <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
                       <Box mx={1}>
                         <Button variant="contained" size='small' color="secondary">
-                       Comprar
+                         Deletar
                         </Button>
                       </Box>
                     </Link>
@@ -87,42 +119,42 @@ function ListaProduto() {
                 </CardActions>
               </Card>
             </Box>
-          ):(
+          ) : (
             <Box m={2} >
-                <Card variant="outlined" sx={{ maxWidth: 345 }} className='card'>
-                <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome}/>
+              <Card variant="outlined" sx={{ maxWidth: 345 }} className='card'>
+                <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome} />
                 <CardContent>
-                    <Typography color="textSecondary" gutterBottom className='card-secondary'>
-                    {produto.servico.toString()=="true"?"Produto":""}
+                  <Typography color="textSecondary" gutterBottom className='card-secondary'>
+                    {produto.servico.toString() == "true" ? "Produto" : ""}
                   </Typography>
-                    <Typography variant="h5" component="h2" className='card-h2'>
+                  <Typography variant="h5" component="h2" className='card-h2'>
                     {produto.nome}
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-descricao'>
+                  <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.descricao}
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-descricao'>
+                  <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.categoria?.descricao}
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-preco'>
+                  <Typography variant="body2" component="p" className='card-preco'>
                     <b>R$ {produto.preco}</b>
                   </Typography>
-                    <Typography variant="body2" component="p" className='card-preco'></Typography>
+                  <Typography variant="body2" component="p" className='card-preco'></Typography>
                 </CardContent>
                 <CardActions>
                   <Box display="flex" justifyContent="center" mb={1.5}>
-  
+
                     <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                       <Box mx={1}>
                         <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                          atualizar
+                          Salvar 
                         </Button>
                       </Box>
                     </Link>
                     <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
                       <Box mx={1}>
                         <Button variant="contained" size='small' color="secondary">
-                          deletar
+                          Comprar 
                         </Button>
                       </Box>
                     </Link>
@@ -132,9 +164,9 @@ function ListaProduto() {
             </Box>
           ))
         }
-        </Grid>
-      </>
-    )
-  }
-  
-  export default ListaProduto;
+      </Grid>
+    </>
+  )
+}
+
+export default ListaProduto;
