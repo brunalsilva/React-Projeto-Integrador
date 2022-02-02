@@ -24,9 +24,6 @@ import FaleConosco from './paginas/FaleConosco/FaleConosco';
 import ListaServico from './components/servicos/listaservico/ListaServico';
 
 
-
-
-
 function App() {
   return (
     <Provider store={store}>
