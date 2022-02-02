@@ -10,21 +10,13 @@ import { CardMedia, Card } from '@mui/material';
 import User from '../../../models/User';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-function ListaProduto() {
+function ListaProdutoHome() {
   const [produtos, setProdutos] = useState<Produto[]>([])
   const [token, setToken] = useLocalStorage('token');
   const [idUser, setIdUser] = useLocalStorage('id');
   const [usuarios, setUsuarios] = useState<User[]>([])
 
   let history = useHistory();
-
-  useEffect(() => {
-    if (token == "") {
-      alert("Você precisa estar logado")
-      history.push("/login")
-
-    }
-  }, [token])
 
   async function getProduto() {
     await busca("/produto", setProdutos, {
@@ -65,8 +57,8 @@ function ListaProduto() {
   }
 
 
-  //vetor com produtos do tipo produto
-  var produtosFiltrados = produtos.filter(produto => produto.servico.toString() == "true");
+  //vetor com produtos do usuario padrao
+  var produtosDefault = produtos.filter(produto => produto.usuario?.usuario == "teste7@gmail.com" && produto.servico.toString() == "true");
 
 
   return (
@@ -77,7 +69,7 @@ function ListaProduto() {
         alignItems="flex-start"
         xs={12}>
         {
-          produtosFiltrados.map(produto => produto.usuario?.id == parseInt(idUser) ? (
+          produtosDefault.map(produto => produto.usuario?.id == parseInt(idUser) ? (
             <Box m={2}>
               <Card variant="outlined" sx={{ maxWidth: 250, minHeight: 407 }} className='card'>
                 <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome} />
@@ -172,4 +164,4 @@ function ListaProduto() {
   )
 }
 
-export default ListaProduto;
+export default ListaProdutoHome;

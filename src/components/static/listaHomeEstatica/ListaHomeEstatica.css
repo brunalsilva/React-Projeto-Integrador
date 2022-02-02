@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+
+.card {
+    background-color: #0a0a0a98 !important;
+    border-radius: 20px !important;
+}
+.card-h2 {
+    font-family: 'Orelega One', cursive !important;
+    color: #f3e8ca !important;
+}
+
+.card-descricao {
+    font-family: 'Noto Sans', sans-serif !important;
+    color: #f3e8cad0 !important;
+}
+
+.card-secondary {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #f3e8ca !important;
+}
+
+.card-preco{
+    font-family: 'Noto Sans', sans-serif !important;
+    color: #f3e8ca !important;
+}
+
+.heart-icon {
+    color: #131212 !important;
+    max-height: 22px !important;
+    width: 100% !important;
+}
+
+.box-descricao {
+    height: 70px;
+    width: 180px;
+}
