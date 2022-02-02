@@ -79,9 +79,6 @@ function DeletarProduto() {
           'Authorization': token
         }
       });
-      alert('Produto deletado com sucesso');
-    }
-    else {
       toast.success('Deletado com sucesso', {
         position: "bottom-right",
         autoClose: 1500,
@@ -93,6 +90,20 @@ function DeletarProduto() {
         progress: undefined,
         transition: Slide,     
     });
+    }
+    else {
+      toast.error('Você não pode deletar esse produto', {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+        transition: Slide,     
+    });
+      
       history.push('/produtos');
     }
   }
