@@ -9,37 +9,39 @@ import './Footer.css';
 function Footer() {
     return (
         <>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container direction="row" justifyContent="center" alignItems="center" className='footer'>
                 <Grid alignItems="center" item xs={12}>
-                    <Box className='box1' display='flex'>
-                        <Box className='box3'>
-                            <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
-                                <Link to='/PorQueDandara' className='text-decoration-none' >
-                                    <Typography variant="h5" align="center" gutterBottom className='texto1'>Por que Dandara?</Typography>
-                                </Link>
+                    <section className="ft-main">
+                        <Box className='box1' display='flex' flex-wrap>
+                            <Box className='box3' display='flex'>
+                                <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
+                                    <Link to='/PorQueDandara' className='text-decoration-none' >
+                                        <Typography variant="h5" align="center" gutterBottom className='texto1'>Por que Dandara?</Typography>
+                                    </Link>
+                                </Box>
+                                <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
+                                    <Link to='/sobrenos' className='text-decoration-none' >
+                                        <Typography variant="h5" align="center" gutterBottom className='texto1'>Sobre nós</Typography>
+                                    </Link>
+                                </Box>
+                                <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
+                                    <Link to='/faleconosco' className='text-decoration-none' >
+                                        <Typography variant="h5" align="center" gutterBottom className='texto1'>Fale conosco</Typography>
+                                    </Link>
+                                </Box>
                             </Box>
-                            <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
-                                <Link to='/sobrenos' className='text-decoration-none' >
-                                    <Typography variant="h5" align="center" gutterBottom className='texto1'>Sobre nós</Typography>
-                                </Link>
-                            </Box>
-                            <Box className='boxLinks' display="flex" alignItems="center" justifyContent="left">
-                                <Link to='/faleconosco' className='text-decoration-none' >
-                                    <Typography variant="h5" align="center" gutterBottom className='texto1'>Fale conosco</Typography>
+                            <Box className='logoFooter'>
+                                <Link to='/home' className='text-decoration-none' >
+                                    <img src="./logo.png" alt="logo dandara" className='logoDandaraFooter' />
                                 </Link>
                             </Box>
                         </Box>
-                        <Box className='logoFooter'>
-                            <Link to='/home' className='text-decoration-none' >
-                                <img src="./logo.png" alt="logo dandara" className='logoDandaraFooter' />
-                            </Link>
+                        <Box className='box2'>
+                            <Box>
+                                <Typography variant="subtitle2" align="center" gutterBottom className='texto2' >© 2022 Copyright: Dandara</Typography>
+                            </Box>
                         </Box>
-                    </Box>
-                    <Box className='box2'>
-                        <Box>
-                            <Typography variant="subtitle2" align="center" gutterBottom className='texto2' >© 2022 Copyright: Dandara</Typography>
-                        </Box>
-                    </Box>
+                    </section>
                 </Grid>
             </Grid>
         </>
