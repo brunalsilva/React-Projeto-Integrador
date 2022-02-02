@@ -168,7 +168,7 @@ function CadastroProd() {
     }
 
     function back() {
-        if(produto.servico==true){
+        if(produto.servico.toString() == "true"){
         history.push('/produtos')
         } else{
             history.push('/servicos')
