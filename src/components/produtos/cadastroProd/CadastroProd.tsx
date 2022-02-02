@@ -27,9 +27,9 @@ function CadastroProd() {
 
     const [produto, setProduto] = useState<Produto>({
         id: 0,
-        preco: 0,
+        preco: null,
         nome: '',
-        quantidade: 0,
+        quantidade: null,
         servico: true,
         foto: '',
         descricao: '',
@@ -110,6 +110,7 @@ function CadastroProd() {
         e.preventDefault()
 
         if (id !== undefined) {
+          
             put(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
@@ -138,7 +139,7 @@ function CadastroProd() {
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto/serviço</Typography>
                 <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth required />
                 <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descriçao" name="descricao" variant="outlined" margin="normal" fullWidth required />
-                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth  required/>
                 <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Foto(URL)" name="foto" variant="outlined" margin="normal" fullWidth />
                 <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço(R$)" name="preco" variant="outlined" margin="normal" fullWidth required />
 
