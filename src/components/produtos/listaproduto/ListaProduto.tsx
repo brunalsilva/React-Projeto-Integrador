@@ -105,7 +105,7 @@ function ListaProduto() {
                     <Typography variant="body2" component="p" className='card-descricao'>
                       {produto.descricao}
                     </Typography>
-                    <Typography variant="body2" component="p" className='card-descricao'>
+                    <Typography variant="body2" component="p" className='card-categoria'>
                       {produto.categoria?.descricao}
                     </Typography>
                   </Box>
@@ -150,7 +150,7 @@ function ListaProduto() {
                   <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.descricao}
                   </Typography>
-                  <Typography variant="body2" component="p" className='card-descricao'>
+                      <Typography variant="body2" component="p" className='card-categoria'>
                     {produto.categoria?.descricao}
                   </Typography>
                     </Box>
