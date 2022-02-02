@@ -64,7 +64,7 @@ function ListaServico() {
                                 <Typography variant="body2" component="p" className='card-descricao'>
                                     {servico.descricao}
                                 </Typography>
-                                <Typography variant="body2" component="p" className='card-descricao'>
+                                <Typography variant="body2" component="p" className='card-categoria'>
                                     {servico.categoria?.descricao}
                                 </Typography>
                                 <Typography variant="body2" component="p" className='card-preco'>
@@ -108,7 +108,7 @@ function ListaServico() {
                                 <Typography variant="body2" component="p" className='card-descricao'>
                             {servico.descricao}
                         </Typography>
-                                <Typography variant="body2" component="p" className='card-descricao'>
+                                <Typography variant="body2" component="p" className='card-categoria'>
                             {servico.categoria?.descricao}
                         </Typography>
                                 <Typography variant="body2" component="p" className='card-preco'>
