@@ -24,3 +24,14 @@
     font-family: 'Noto Sans', sans-serif !important;
     color: #f3e8ca !important;
 }
+
+.heart-icon {
+    color: #131212 !important;
+    max-height: 22px !important;
+    width: 100% !important;
+}
+
+.box-descricao {
+    height: 70px;
+    width: 180px;
+}
