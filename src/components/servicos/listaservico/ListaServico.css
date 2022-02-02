@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
+=======
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap%27');
+>>>>>>> d0947da86da9bac9b0480e79e6cb276ba01f50e4
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
 .card {
@@ -34,4 +38,8 @@
 .box-descricao {
     height: 70px;
     width: 180px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d0947da86da9bac9b0480e79e6cb276ba01f50e4
