@@ -5,8 +5,8 @@ import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
-//import { ToastContainer, toast } from 'react-toastify';
-//import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     let history = useHistory();
@@ -63,10 +63,32 @@ function Login() {
         e.preventDefault();
         try {
             await login(`/usuarios/logar`, userLogin, setUserLoginResult)
-
-            alert('Usuário logado com sucesso!');
+            
+            toast.success('Usuario logado com sucesso', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+                
+            });
         } catch (error) {
             alert('Dados do usuário inconsistentes. Erro ao logar!');
+              toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+            });
         }
 
     }

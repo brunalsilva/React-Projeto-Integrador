@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { buscaId, deleteId } from '../../../services/Service';
 import Categoria from '../../../models/Categoria';
+import { Slide, toast } from 'react-toastify';
 
 
 function DeletarCategoria() {
@@ -15,7 +16,19 @@ function DeletarCategoria() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            //alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+              position: "bottom-right",
+              autoClose: 1500,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: false,
+              theme: "dark",
+              progress: undefined,
+              transition: Slide,
+            
+          }); 
             history.push("/login")
     
         }
@@ -42,7 +55,18 @@ function DeletarCategoria() {
                 'Authorization': token
               }
             });
-            alert('Categoria deletada com sucesso');
+            //alert('Categoria deletada com sucesso');
+            toast.success('Deletado com sucesso', {
+              position: "bottom-right",
+              autoClose: 1500,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: false,
+              theme: "dark",
+              progress: undefined,
+              transition: Slide,     
+          });
           }
         
           function nao() {

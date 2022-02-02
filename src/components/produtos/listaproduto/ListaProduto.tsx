@@ -9,6 +9,8 @@ import { useHistory } from 'react-router-dom'
 import { CardMedia, Card } from '@mui/material';
 import User from '../../../models/User';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { toast, Slide } from 'react-toastify';
+
 
 function ListaProduto() {
   const [produtos, setProdutos] = useState<Produto[]>([])
@@ -20,7 +22,18 @@ function ListaProduto() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado', {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+        transition: Slide,
+      
+    }); 
       history.push("/login")
 
     }

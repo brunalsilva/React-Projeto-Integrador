@@ -8,6 +8,7 @@ import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import User from '../../../models/User';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { Slide, toast } from 'react-toastify';
 
 
 function CadastroProd() {
@@ -50,7 +51,18 @@ function CadastroProd() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+             toast.error('Você precisa estar logado', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+            });
+            
             history.push("/login")
 
         }
@@ -115,14 +127,38 @@ function CadastroProd() {
                 headers: {
                     'Authorization': token
                 }
-            })
-            alert('Produto atualizado com sucesso');
+            })     
+             toast.success('Atualizado com sucesso', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+                
+            });
+            
         } else {
             post(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
             })
+            toast.success('Cadastrado com sucesso', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+                
+            }); 
 
         }
         back()
@@ -187,3 +223,10 @@ function CadastroProd() {
     )
 }
 export default CadastroProd;
+
+
+
+
+
+
+

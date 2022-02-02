@@ -6,6 +6,7 @@ import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
 import { busca, buscaId, deleteId } from '../../../services/Service';
 import User from '../../../models/User';
+import { Slide, toast } from 'react-toastify';
 
 
 function DeletarProduto() {
@@ -20,7 +21,18 @@ function DeletarProduto() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado', {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+        transition: Slide,
+      
+    }); 
       history.push("/login")
 
     }
@@ -67,10 +79,31 @@ function DeletarProduto() {
           'Authorization': token
         }
       });
-      alert('Produto deletado com sucesso');
+      toast.success('Deletado com sucesso', {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+        transition: Slide,     
+    });
     }
     else {
-      alert("Você não pode deletar este produto")
+      toast.error('Você não pode deletar esse produto', {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+        transition: Slide,     
+    });
+      
       history.push('/produtos');
     }
   }

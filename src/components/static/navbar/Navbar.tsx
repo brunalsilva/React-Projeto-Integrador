@@ -15,6 +15,10 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useLocalStorage from "react-use-localstorage";
 
+import { Slide, toast } from "react-toastify";
+
+
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -78,7 +82,19 @@ function Navbar() {
 
   function goLogout() {
     setToken('')
-    alert("Usuário deslogado")
+    toast.info('Usuário deslogado', {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "dark",
+      progress: undefined,
+      transition: Slide,
+     
+  });
+
     history.push('/login')
   }
 
