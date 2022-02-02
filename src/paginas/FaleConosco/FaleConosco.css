@@ -21,6 +21,21 @@
     font-size: 38px !important;
 }
 
+.form-contato {
+    border-radius: 4px;
+    background-color: #cc000000;
+    border-color: #f3e8cac2 !important;
+    width: 91%;
+    height: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: start !important;
+    font-size: 16px !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    color: #f3e8cac2 !important;
+}
+
 .form-contato-mensagem {
     border-radius: 4px;
     background-color: #cc000000;
@@ -39,6 +54,10 @@
 /* para tirar borda preta da caixa de mensagem */
 
 .form-contato-mensagem:focus{
+    outline: none !important;
+}
+
+.form-contato:focus{
     outline: none !important;
 }
 

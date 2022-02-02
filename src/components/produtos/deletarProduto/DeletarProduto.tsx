@@ -71,24 +71,30 @@ function DeletarProduto() {
 
   function sim() {
 
+    if (produto?.usuario?.id == parseInt(idUser)) {
 
-    history.push('/produtos')
-    deleteId(`/produto/${id}`, {
-      headers: {
-        'Authorization': token
-      }
+      history.push('/produtos')
+      deleteId(`/produto/${id}`, {
+        headers: {
+          'Authorization': token
+        }
+      });
+      alert('Produto deletado com sucesso');
+    }
+    else {
+      toast.success('Deletado com sucesso', {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+        transition: Slide,     
     });
-    toast.success('Deletado com sucesso', {
-      position: "bottom-right",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      theme: "dark",
-      progress: undefined,
-      transition: Slide,     
-  });
+      history.push('/produtos');
+    }
   }
 
 
@@ -104,7 +110,7 @@ function DeletarProduto() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                {usuarios.map(usuario => usuario.id == parseInt(idUser) ? usuario.nome : "")}, tem certeza que deseja deletar o {produto?.servico==true?"produto":"serviço"}:
+                {usuarios.map(usuario => usuario.id == parseInt(idUser) ? usuario.nome : "")}, tem certeza que deseja deletar o {produto?.servico == true ? "produto" : "serviço"}:
               </Typography>
               <Typography color="textSecondary">
                 {produto?.nome}

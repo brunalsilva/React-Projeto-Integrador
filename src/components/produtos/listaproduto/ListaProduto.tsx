@@ -11,6 +11,7 @@ import User from '../../../models/User';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { toast, Slide } from 'react-toastify';
 
+
 function ListaProduto() {
   const [produtos, setProdutos] = useState<Produto[]>([])
   const [token, setToken] = useLocalStorage('token');
