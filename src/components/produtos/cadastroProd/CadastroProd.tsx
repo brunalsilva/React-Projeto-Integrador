@@ -8,6 +8,7 @@ import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import User from '../../../models/User';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { Box, CardActions, CardContent, Grid } from '@material-ui/core';
 
 
 function CadastroProd() {
@@ -133,55 +134,57 @@ function CadastroProd() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
-            <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto/serviço</Typography>
-                <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth required />
-                <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descriçao" name="descricao" variant="outlined" margin="normal" fullWidth required />
-                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
-                <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Foto(URL)" name="foto" variant="outlined" margin="normal" fullWidth />
-                <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço(R$)" name="preco" variant="outlined" margin="normal" fullWidth required />
+        <Container className="topo">
+            <Grid container alignItems="center" item xs={12}>
+                <Box marginX={20} sx={{ maxWidth: 300, minHeight: 400 }} display="flex" alignItems="center" justifyContent="center" className='box-fundo-opaca-cadastro'>
+                    <form onSubmit={onSubmit}>
+                        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto/serviço</Typography>
+                        <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth required />
+                        <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descriçao" name="descricao" variant="outlined" margin="normal" fullWidth required />
+                        <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
+                        <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Foto(URL)" name="foto" variant="outlined" margin="normal" fullWidth />
+                        <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço(R$)" name="preco" variant="outlined" margin="normal" fullWidth required />
+                        <FormControl>
+                            <FormLabel id="demo-controlled-radio-buttons-group">Tipo</FormLabel>
+                            <RadioGroup
+                                aria-labelledby="demo-controlled-radio-buttons-group"
+                                name="servico"
+                                value={value}
+                                onChange={handleChange}
+                                row
+                                aria-required
+                            >
+                                <FormControlLabel value={true} control={<Radio />} label="Produto" />
+                                <FormControlLabel value={false} control={<Radio />} label="Serviço" />
 
-
-                <FormControl>
-                    <FormLabel id="demo-controlled-radio-buttons-group">Tipo</FormLabel>
-                    <RadioGroup
-                        aria-labelledby="demo-controlled-radio-buttons-group"
-                        name="servico"
-                        value={value}
-                        onChange={handleChange}
-                        row
-                        aria-required
-                    >
-                        <FormControlLabel value={true} control={<Radio />} label="Produto" />
-                        <FormControlLabel value={false} control={<Radio />} label="Serviço" />
-
-                    </RadioGroup>
-                </FormControl>
-                <br></br>
-                <FormControl>
-                    <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
-                    <Select
-                        required
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/categoria/${e.target.value}`, setCategoria, {
-                            headers: {
-                                'Authorization': token
-                            }
-                        })}>
-                        {
-                            categorias.map(categoria => (
-                                <MenuItem value={categoria.id}>{categoria.descricao}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha uma categoria para  o produto</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
-                    </Button>
-                </FormControl>
-            </form>
+                            </RadioGroup>
+                        </FormControl>
+                        <br></br>
+                        <FormControl>
+                            <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
+                            <Select
+                                required
+                                labelId="demo-simple-select-helper-label"
+                                id="demo-simple-select-helper"
+                                onChange={(e) => buscaId(`/categoria/${e.target.value}`, setCategoria, {
+                                    headers: {
+                                        'Authorization': token
+                                    }
+                                })}>
+                                {
+                                    categorias.map(categoria => (
+                                        <MenuItem value={categoria.id}>{categoria.descricao}</MenuItem>
+                                    ))
+                                }
+                            </Select>
+                            <FormHelperText>Escolha uma categoria para  o produto</FormHelperText>
+                            <Button type="submit" variant="contained" color="primary">
+                                Finalizar
+                            </Button>
+                        </FormControl>
+                    </form>
+                </Box>
+            </Grid>
         </Container>
     )
 }

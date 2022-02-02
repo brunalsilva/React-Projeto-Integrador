@@ -74,7 +74,7 @@ function ListaProduto() {
     <>
       <Grid container
         direction="row"
-        justifyContent="space-around"
+        justifyContent="center"
         alignItems="flex-start" 
         xs={12}>
         {
@@ -134,12 +134,14 @@ function ListaProduto() {
                   <Typography variant="h5" component="h2" className='card-h2'>
                     {produto.nome}
                   </Typography>
+                    <Box className='box-descricao' >
                   <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.descricao}
                   </Typography>
                   <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.categoria?.descricao}
                   </Typography>
+                    </Box>
                   <Typography variant="body2" component="p" className='card-preco'>
                     <b>R$ {produto.preco}</b>
                   </Typography>

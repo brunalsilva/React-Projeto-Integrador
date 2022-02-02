@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service'
-import { Box, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Box, CardActions, CardContent, Button, Typography, Grid } from '@material-ui/core';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
 import { CardMedia, Card } from '@mui/material';
-
-
+import './ListaServico.css';
 
 function ListaServico() {
     const [servicos, setServicos] = useState<Produto[]>([])
@@ -45,25 +44,30 @@ function ListaServico() {
 
     return (
         <>
+            <Grid container
+                direction="row"
+                justifyContent="center"
+                alignItems="flex-start"
+                xs={12}>
             {
                 servicosFiltrados.map(servico => servico.usuario?.id == parseInt(idUser) ? (
                     <Box m={2} className='box' >
-                        <Card variant="outlined" sx={{ maxWidth: 345 }}>
+                        <Card variant="outlined" sx={{ maxWidth: 250, minHeight: 407 }} className='card'>
                             <CardMedia component="img" height="194" image={servico.foto} alt={servico.nome} />
                             <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
+                                <Typography color="textSecondary" gutterBottom className='card-secondary'>
                                     {servico.servico.toString() == "false" ? "Serviço" : "Produto"}
                                 </Typography>
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h5" component="h2" className='card-h2'>
                                     {servico.nome}
                                 </Typography>
-                                <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className='card-descricao'>
                                     {servico.descricao}
                                 </Typography>
-                                <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className='card-descricao'>
                                     {servico.categoria?.descricao}
                                 </Typography>
-                                <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className='card-preco'>
                                 <b>
                                 R$ {servico.preco}
                                     </b> 
@@ -92,22 +96,22 @@ function ListaServico() {
                         </Card>
                     </Box>
                 ) : <Box m={2} className='box' >
-                <Card variant="outlined" sx={{ maxWidth: 345 }}>
+                        <Card variant="outlined" sx={{ maxWidth: 250, minHeight: 407 }} className='card'>
                     <CardMedia component="img" height="194" image={servico.foto} alt={servico.nome} />
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>
+                                <Typography color="textSecondary" gutterBottom className='card-secondary'>
                             {servico.servico.toString() == "false" ? "Serviço" : "Produto"}
                         </Typography>
-                        <Typography variant="h5" component="h2">
+                                <Typography variant="h5" component="h2" className='card-h2'>
                             {servico.nome}
                         </Typography>
-                        <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className='card-descricao'>
                             {servico.descricao}
                         </Typography>
-                        <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className='card-descricao'>
                             {servico.categoria?.descricao}
                         </Typography>
-                        <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className='card-preco'>
                         <b>
                         R$ {servico.preco}
                             </b> 
@@ -129,6 +133,7 @@ function ListaServico() {
                 </Card>
             </Box>)
             }
+            </Grid>
         </>
     )
 }
