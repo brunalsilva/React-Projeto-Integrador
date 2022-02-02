@@ -58,20 +58,18 @@ function DeletarProduto() {
 
 
   function sim() {
-    if (produto?.usuario?.id == parseInt(idUser)) {
-      history.push('/produtos')
-      deleteId(`/produto/${id}`, {
-        headers: {
-          'Authorization': token
-        }
-      });
-      alert('Produto deletado com sucesso');
-    }
-    else {
-      alert("voce n pode deletar esse produto!")
-      history.push('/produtos')
-    }
+
+
+    history.push('/produtos')
+    deleteId(`/produto/${id}`, {
+      headers: {
+        'Authorization': token
+      }
+    });
+    alert('Produto deletado com sucesso');
   }
+
+
 
   function nao() {
     history.push('/produtos')
@@ -84,7 +82,7 @@ function DeletarProduto() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                {usuarios.map(usuario => usuario.id == parseInt(idUser) ? usuario.nome : "")}, tem certeza que deseja deletar o produto:
+                {usuarios.map(usuario => usuario.id == parseInt(idUser) ? usuario.nome : "")}, tem certeza que deseja deletar o {produto?.servico==true?"produto":"serviço"}:
               </Typography>
               <Typography color="textSecondary">
                 {produto?.nome}

@@ -12,6 +12,8 @@ import { CardMedia, Card } from '@mui/material';
 function ListaServico() {
     const [servicos, setServicos] = useState<Produto[]>([])
     const [token, setToken] = useLocalStorage('token');
+    const [idUser, setIdUser] = useLocalStorage('id');
+
     let history = useHistory();
 
     useEffect(() => {
@@ -36,10 +38,15 @@ function ListaServico() {
 
     }, [servicos.length])
 
+
+    
+  //vetor com produtos do tipo serviço
+  var servicosFiltrados = servicos.filter(servico => servico.servico.toString() == "false");
+
     return (
         <>
             {
-                servicos.map(servico => servico.servico.toString() == "false" ? (
+                servicosFiltrados.map(servico => servico.usuario?.id == parseInt(idUser) ? (
                     <Box m={2} className='box' >
                         <Card variant="outlined" sx={{ maxWidth: 345 }}>
                             <CardMedia component="img" height="194" image={servico.foto} alt={servico.nome} />
@@ -84,7 +91,43 @@ function ListaServico() {
                             </CardActions>
                         </Card>
                     </Box>
-                ) : '')
+                ) : <Box m={2} className='box' >
+                <Card variant="outlined" sx={{ maxWidth: 345 }}>
+                    <CardMedia component="img" height="194" image={servico.foto} alt={servico.nome} />
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>
+                            {servico.servico.toString() == "false" ? "Serviço" : "Produto"}
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                            {servico.nome}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            {servico.descricao}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            {servico.categoria?.descricao}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                        <b>
+                        R$ {servico.preco}
+                            </b> 
+                        </Typography>
+                        <Typography variant="body2" component="p"></Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Box display="flex" justifyContent="center" mb={1.5}>
+
+                            <Link to={`/formularioProduto/${servico.id}`} className="text-decorator-none" >
+                                <Box mx={1}>
+                                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                       Contratar
+                                    </Button>
+                                </Box>
+                            </Link>
+                        </Box>
+                    </CardActions>
+                </Card>
+            </Box>)
             }
         </>
     )
