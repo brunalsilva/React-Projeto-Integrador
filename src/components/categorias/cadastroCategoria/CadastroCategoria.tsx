@@ -5,6 +5,8 @@ import './CadastroTema.css';
 import useLocalStorage from 'react-use-localstorage';
 import Categoria from '../../../models/Categoria';
 import { buscaId, post, put } from '../../../services/Service';
+import { Slide, toast } from 'react-toastify';
+
 
 
 
@@ -21,7 +23,19 @@ function CadastroCategoria() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            //alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+            });
+            
             history.push("/login")
     
         }
@@ -61,14 +75,38 @@ function CadastroCategoria() {
                         'Authorization': token
                     }
                 })
-                alert('Categoria atualizada com sucesso');
+                //alert('Categoria atualizada com sucesso');
+                toast.success('Atualizado com sucesso', {
+                    position: "bottom-right",
+                    autoClose: 1500,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "dark",
+                    progress: undefined,
+                    transition: Slide,
+                    
+                });
             } else {
                 post(`/categoria`, categoria, setCategoria, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Categoria cadastrada com sucesso');
+                //alert('Categoria cadastrada com sucesso');
+                toast.success('Cadastrado com sucesso', {
+                    position: "bottom-right",
+                    autoClose: 1500,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "dark",
+                    progress: undefined,
+                    transition: Slide,
+                    
+                }); 
             }
             back()
     
@@ -81,7 +119,7 @@ function CadastroCategoria() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastro Categoria</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
                 <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar

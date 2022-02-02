@@ -7,11 +7,14 @@ import { styled, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Logout, PersonAdd } from "@mui/icons-material";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import AddIcon from '@mui/icons-material/Add';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useLocalStorage from "react-use-localstorage";
+import { Slide, toast } from "react-toastify";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -57,6 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function Navbar() {
 
+
+
   // drop down menu funcoes e estados - inicio
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -68,9 +73,32 @@ function Navbar() {
   };
   // drop down menu - fim
 
-  return (
 
-    <Box sx={{ flexGrow: 1 }}>
+  const [token, setToken] = useLocalStorage('token');
+  let history = useHistory();
+
+  function goLogout() {
+    setToken('')
+    toast.info('Usuário deslogado', {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "dark",
+      progress: undefined,
+      transition: Slide,
+     
+  });
+    history.push('/login')
+  }
+
+  // variavel para armazenar navbar se o usuario estiver logado 
+  var navbarComponent;
+
+  if (token != "") {
+    navbarComponent = <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className="appbar">
         <Toolbar>
           <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
@@ -82,16 +110,6 @@ function Navbar() {
                 <Link to='/home' className='text-decoration-none' >
                   <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
                     Início
-                  </Typography>
-                </Link>
-                <Link to='/login' className='text-decoration-none' >
-                  <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                    Login
-                  </Typography>
-                </Link>
-                <Link to='/cadastrousuario' className='text-decoration-none' >
-                  <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
-                    Cadastre-se
                   </Typography>
                 </Link>
               </Box>
@@ -183,31 +201,23 @@ function Navbar() {
                     Serviços
                   </Link>
                 </MenuItem>
-                
-                <Divider />
-
-
-
-                <MenuItem sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                  <ListItemIcon>
-                    <AccountCircleIcon />
-                  </ListItemIcon>
-                  Login
-                </MenuItem>
-                <MenuItem sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                  <ListItemIcon>
-                    <PersonAdd fontSize="small" />
-                  </ListItemIcon>
-                  Cadastre-se
-                </MenuItem>
-
-
-
                 <MenuItem>
-                  <ListItemIcon>
-                    <Logout fontSize="small" />
-                  </ListItemIcon>
-                  Logout
+                  <Link to="/formularioProduto" className="text-decorator-none">
+                    <ListItemIcon>
+                      <AddIcon />
+                    </ListItemIcon>
+                    Adicionar produto
+                  </Link>
+                </MenuItem>
+
+                <Divider />
+                <MenuItem>
+                  <Box onClick={goLogout}>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </Box>
                 </MenuItem>
               </Menu>
 
@@ -229,7 +239,77 @@ function Navbar() {
         </Box>
       </AppBar>
     </Box>
-  );
-}
 
+    return (
+      <>
+
+        {navbarComponent}
+      </>
+    )
+  } else {
+
+
+    return (
+      
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" className="appbar">
+          <Toolbar>
+            <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
+              <Box display="flex" alignItems="center">
+                <Link to='/home' className='text-decoration-none' >
+                  <img src="./logo.png" alt="" className="navbar-logo" />
+                </Link>
+                <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                  <Link to='/home' className='text-decoration-none' >
+                    <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                      Início
+                    </Typography>
+                  </Link>
+                  <Link to='/login' className='text-decoration-none' >
+                    <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                      Login
+                    </Typography>
+                  </Link>
+                  <Link to='/cadastrousuario' className='text-decoration-none' >
+                    <Typography className="appbar-text color-appbar" variant="h6" component="div" noWrap >
+                      Cadastre-se
+                    </Typography>
+                  </Link>
+                </Box>
+              </Box>
+              <Box display="flex" height={30}>
+
+                <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                  <Search>
+                    <SearchIconWrapper>
+                      <SearchIcon className="color-appbar" />
+                    </SearchIconWrapper>
+                    <StyledInputBase className="color-appbar"
+                      placeholder="Buscar..."
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                  </Search>
+                </Box>
+
+                <ShoppingCartIcon className="color-appbar cart-icon" />
+              </Box>
+            </Box>
+          </Toolbar>
+          <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon className="color-appbar" />
+              </SearchIconWrapper>
+              <StyledInputBase className="color-appbar"
+                placeholder="Buscar..."
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          </Box>
+        </AppBar>
+      </Box>
+    );
+  }
+
+}
 export default Navbar;

@@ -8,6 +8,7 @@ import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import User from '../../../models/User';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { Slide, toast } from 'react-toastify';
 
 
 function CadastroProd() {
@@ -50,7 +51,18 @@ function CadastroProd() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+             toast.error('Você precisa estar logado', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+            });
+            
             history.push("/login")
 
         }
@@ -114,14 +126,38 @@ function CadastroProd() {
                 headers: {
                     'Authorization': token
                 }
-            })
-            alert('Produto atualizado com sucesso');
+            })     
+             toast.success('Atualizado com sucesso', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+                
+            });
+            
         } else {
             post(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
             })
+            toast.success('Cadastrado com sucesso', {
+                position: "bottom-right",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+                transition: Slide,
+                
+            }); 
 
         }
         back()
@@ -136,11 +172,11 @@ function CadastroProd() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro produto/serviço</Typography>
-                <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
-                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
-                <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" name="foto" variant="outlined" margin="normal" fullWidth />
-                <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preco" name="preco" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth required />
+                <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descriçao" name="descricao" variant="outlined" margin="normal" fullWidth required />
+                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Foto(URL)" name="foto" variant="outlined" margin="normal" fullWidth />
+                <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço(R$)" name="preco" variant="outlined" margin="normal" fullWidth required />
 
 
                 <FormControl>
@@ -151,6 +187,7 @@ function CadastroProd() {
                         value={value}
                         onChange={handleChange}
                         row
+                        aria-required
                     >
                         <FormControlLabel value={true} control={<Radio />} label="Produto" />
                         <FormControlLabel value={false} control={<Radio />} label="Serviço" />
@@ -161,6 +198,7 @@ function CadastroProd() {
                 <FormControl>
                     <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
                     <Select
+                        required
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
                         onChange={(e) => buscaId(`/categoria/${e.target.value}`, setCategoria, {
@@ -184,8 +222,6 @@ function CadastroProd() {
     )
 }
 export default CadastroProd;
-
-
 
 
 
