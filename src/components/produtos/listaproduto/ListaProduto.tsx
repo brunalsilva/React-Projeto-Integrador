@@ -144,14 +144,14 @@ function ListaProduto() {
                 <CardActions>
                   <Box display="flex" justifyContent="center" mb={1.5}>
 
-                    <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
+                    <Link to={``} className="text-decorator-none" >
                       <Box mx={1}>
                         <Button variant="contained" className="marginLeft" size='small' color="primary" >
                           Salvar 
                         </Button>
                       </Box>
                     </Link>
-                    <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
+                    <Link to={``} className="text-decorator-none">
                       <Box mx={1}>
                         <Button variant="contained" size='small' color="secondary">
                           Comprar 
