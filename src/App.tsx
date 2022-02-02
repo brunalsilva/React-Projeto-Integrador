@@ -95,7 +95,7 @@ function App() {
             </Route>
             <Route path='/servicos'>
             <Navbar />
-              <ListaServico/>
+              <ListaServico />
             </Route>
 
 
