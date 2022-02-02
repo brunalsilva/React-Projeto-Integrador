@@ -2,85 +2,135 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service'
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import './ListaServico.css';
+import { Box, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
+import { CardMedia, Card } from '@mui/material';
+
 
 
 function ListaServico() {
-    const [produtos, setProdutos] = useState<Produto[]>([])
+    const [servicos, setServicos] = useState<Produto[]>([])
     const [token, setToken] = useLocalStorage('token');
+    const [idUser, setIdUser] = useLocalStorage('id');
+
     let history = useHistory();
 
     useEffect(() => {
         if (token == "") {
-          alert("Você precisa estar logado")
-          history.push("/login")
-    
-        }
-      }, [token])
-    
-      async function getServico() {
-        await busca("/produto", setProdutos, {
-          headers: {
-            'Authorization': token
-          }
-        })
-      }
-    
-      useEffect(() => {
-    
-        getServico()
-    
-      }, [produtos.length])
-    
-      return (
-        <>
-          {
-            produtos.map(produto => (
-              <Box m={2} >
-                <Card variant="outlined">
-                  <CardContent>
-                    <Typography color="textSecondary" gutterBottom>
-                      Servicos
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                      {produto.nome}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                      {produto.descricao}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                      {produto.categoria?.descricao}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Box display="flex" justifyContent="center" mb={1.5}>
-    
-                      <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
-                        <Box mx={1}>
-                          <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                            atualizar
-                          </Button>
-                        </Box>
-                      </Link>
-                      <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
-                        <Box mx={1}>
-                          <Button variant="contained" size='small' color="secondary">
-                            deletar
-                          </Button>
-                        </Box>
-                      </Link>
-                    </Box>
-                  </CardActions>
-                </Card>
-              </Box>
-            ))
-          }
-        </>
-      )
-    }
-    
+            alert("Você precisa estar logado")
+            history.push("/login")
 
-    export default ListaServico;
+        }
+    }, [token])
+
+    async function getServico() {
+        await busca("/produto", setServicos, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+    useEffect(() => {
+
+        getServico()
+
+    }, [servicos.length])
+
+
+    
+  //vetor com produtos do tipo serviço
+  var servicosFiltrados = servicos.filter(servico => servico.servico.toString() == "false");
+
+    return (
+        <>
+            {
+                servicosFiltrados.map(servico => servico.usuario?.id == parseInt(idUser) ? (
+                    <Box m={2} className='box' >
+                        <Card variant="outlined" sx={{ maxWidth: 345 }}>
+                            <CardMedia component="img" height="194" image={servico.foto} alt={servico.nome} />
+                            <CardContent>
+                                <Typography color="textSecondary" gutterBottom>
+                                    {servico.servico.toString() == "false" ? "Serviço" : "Produto"}
+                                </Typography>
+                                <Typography variant="h5" component="h2">
+                                    {servico.nome}
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    {servico.descricao}
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    {servico.categoria?.descricao}
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                <b>
+                                R$ {servico.preco}
+                                    </b> 
+                                </Typography>
+                                <Typography variant="body2" component="p"></Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Box display="flex" justifyContent="center" mb={1.5}>
+
+                                    <Link to={`/formularioProduto/${servico.id}`} className="text-decorator-none" >
+                                        <Box mx={1}>
+                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                                atualizar
+                                            </Button>
+                                        </Box>
+                                    </Link>
+                                    <Link to={`/deletarProduto/${servico.id}`} className="text-decorator-none">
+                                        <Box mx={1}>
+                                            <Button variant="contained" size='small' color="secondary">
+                                                deletar
+                                            </Button>
+                                        </Box>
+                                    </Link>
+                                </Box>
+                            </CardActions>
+                        </Card>
+                    </Box>
+                ) : <Box m={2} className='box' >
+                <Card variant="outlined" sx={{ maxWidth: 345 }}>
+                    <CardMedia component="img" height="194" image={servico.foto} alt={servico.nome} />
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>
+                            {servico.servico.toString() == "false" ? "Serviço" : "Produto"}
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                            {servico.nome}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            {servico.descricao}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            {servico.categoria?.descricao}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                        <b>
+                        R$ {servico.preco}
+                            </b> 
+                        </Typography>
+                        <Typography variant="body2" component="p"></Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Box display="flex" justifyContent="center" mb={1.5}>
+
+                            <Link to={``} className="text-decorator-none" >
+                                <Box mx={1}>
+                                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                       Contratar
+                                    </Button>
+                                </Box>
+                            </Link>
+                        </Box>
+                    </CardActions>
+                </Card>
+            </Box>)
+            }
+        </>
+    )
+}
+
+export default ListaServico;
