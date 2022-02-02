@@ -12,33 +12,32 @@ export default function FaleConosco() {
      }
      return (
           <>
-               <Grid container direction='row' justifyContent='center' alignItems='center'>
-                    <Grid alignItems='center' xs={6}>
-                         <Box className='box-fundo-opaca'>
-                              <div>
-                                   <h2>Contato</h2>
+               <Grid alignItems="center" item xs={12}>
+                    <Box padding={10} display="flex" alignItems="center" justifyContent="center">
+                         <Box className='box-fundo-opaca-login'>
+                              <div className='box-outside-contato'>
+                                   <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='header'>Entre em contato conosco</Typography>
                                    <form onSubmit={sendEmail}>
                                         <div>
                                              <div>
-                                                  <label>Nome</label>
-                                                  <input type="text" autoFocus className="form-control" required placeholder="Nome" name="name" />
+                                                  <TextField id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
                                              </div>
                                              <div >
-                                                  <label>Email</label>
-                                                  <input type="email" required placeholder="Seu email" name="email" />
+                                                  <TextField id='e-mail' label='e-mail' variant='outlined' name='e-mail' margin='normal' fullWidth />
                                              </div>
                                              <div>
-                                                  <label>Mensagem</label>
-                                                  <textarea required placeholder="Sua mensagem" name="message"></textarea>
+                                                  <textarea required placeholder="mensagem" name="message" className='form-contato-mensagem'></textarea >
                                              </div>
-                                             <div>
-                                                  <input type="submit" value="Enviar mensagem"></input>
-                                             </div>
+                                             <Box display='flex' justifyContent='center'>
+                                                  <Button type='submit' variant='contained' color='primary'>
+                                                       Enviar
+                                                  </Button>
+                                             </Box>
                                         </div>
                                    </form>
                               </div>
                          </Box>
-                    </Grid>
+                    </Box>
                </Grid>
           </>
      )

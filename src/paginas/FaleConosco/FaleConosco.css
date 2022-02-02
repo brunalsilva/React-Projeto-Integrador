@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
+
+.box-fundo-opaca-login {
+    background-color: #0a0a0a98;
+    height: 530px;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.box-outside-contato {
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 50px;
+}
+
+.header {
+    font-weight: bolder !important;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #f3e8ca !important;
+    font-size: 38px !important;
+}
+
+.form-contato-mensagem {
+    border-radius: 4px;
+    background-color: #cc000000;
+    border-color: #f3e8cac2 !important;
+    width: 91%;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: start !important;
+    font-size: 16px !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    color: #f3e8cac2 !important;
+}
+
+/* para tirar borda preta da caixa de mensagem */
+
+.form-contato-mensagem:focus{
+    outline: none !important;
+}
+
+.form-control {
+    color: #f3e8cac2 !important;
+    border-image: 0px;
+    border-color: #f3e8cac2 !important;
+    border-style:inset;
+}
+
+.form-control::-webkit-input-placeholder {color: #f3e8cac2; }  
+::-ms-input-placeholder { color: #f3e8cac2; }
+::placeholder {   color: #f3e8cac2; }
