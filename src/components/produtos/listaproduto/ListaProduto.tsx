@@ -8,6 +8,7 @@ import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
 import { CardMedia, Card } from '@mui/material';
 import User from '../../../models/User';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function ListaProduto() {
   const [produtos, setProdutos] = useState<Produto[]>([])
@@ -73,12 +74,13 @@ function ListaProduto() {
     <>
       <Grid container
         direction="row"
-        justifyContent="space-between"
-        alignItems="flex-start" xs={12}>
+        justifyContent="space-around"
+        alignItems="flex-start" 
+        xs={12}>
         {
           produtosFiltrados.map(produto => produto.usuario?.id == parseInt(idUser) ? (
             <Box m={2}>
-              <Card variant="outlined" sx={{ maxWidth: 345 }} className='card'>
+              <Card variant="outlined" sx={{ maxWidth: 250, minHeight: 407 }} className='card'>
                 <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome} />
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom className='card-secondary'>
@@ -87,12 +89,14 @@ function ListaProduto() {
                   <Typography variant="h5" component="h2" className='card-h2'>
                     {produto.nome}
                   </Typography>
-                  <Typography variant="body2" component="p" className='card-descricao'>
-                    {produto.descricao}
-                  </Typography>
-                  <Typography variant="body2" component="p" className='card-descricao'>
-                    {produto.categoria?.descricao}
-                  </Typography>
+                  <Box className='box-descricao' >
+                    <Typography variant="body2" component="p" className='card-descricao'>
+                      {produto.descricao}
+                    </Typography>
+                    <Typography variant="body2" component="p" className='card-descricao'>
+                      {produto.categoria?.descricao}
+                    </Typography>
+                  </Box>
                   <Typography variant="body2" component="p" className='card-preco'>
                     <b>R$ {produto.preco}</b>
                   </Typography>
@@ -121,8 +125,8 @@ function ListaProduto() {
             </Box>
           ) : (
             <Box m={2} >
-              <Card variant="outlined" sx={{ maxWidth: 345 }} className='card'>
-                <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome} />
+                <Card variant="outlined" sx={{ maxWidth: 250, minHeight: 407 }} className='card'>
+                <CardMedia component="img" height="194" image={produto.foto} alt={produto.nome}/>
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom className='card-secondary'>
                     {produto.servico.toString() == "true" ? "Produto" : ""}
@@ -147,7 +151,7 @@ function ListaProduto() {
                     <Link to={``} className="text-decorator-none" >
                       <Box mx={1}>
                         <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                          Salvar 
+                          <FavoriteIcon className='icon heart-icon'/>
                         </Button>
                       </Box>
                     </Link>

@@ -20,13 +20,13 @@ export default function FaleConosco() {
                                    <form onSubmit={sendEmail}>
                                         <div>
                                              <div>
-                                                  <TextField id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
+                                                  <input type="text" autoFocus className="form-control form-contato" required placeholder="Nome" name="name"/>
                                              </div>
                                              <div >
-                                                  <TextField id='e-mail' label='e-mail' variant='outlined' name='e-mail' margin='normal' fullWidth />
+                                                  <input type="email" required placeholder="Seu email" name="email" className='form-contato'/>
                                              </div>
                                              <div>
-                                                  <textarea required placeholder="mensagem" name="message" className='form-contato-mensagem'></textarea >
+                                                  <textarea required placeholder="mensagem" name="message" className='form-contato-mensagem form-control'></textarea >
                                              </div>
                                              <Box display='flex' justifyContent='center'>
                                                   <Button type='submit' variant='contained' color='primary'>
