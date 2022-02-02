@@ -28,11 +28,11 @@ function CadastroProd() {
 
     const [produto, setProduto] = useState<Produto>({
         id: 0,
-        preco: null,
+        preco: 0,
         nome: '',
-        quantidade: null,
+        quantidade: 0,
         servico: true,
-        foto: '',
+        foto: 'https://64.media.tumblr.com/d8f8e63f3a8ae7b6e3208dc9c05508c8/39e32cd3cbe5c48a-af/s1280x1920/35d6209f3bc6349d2a194b718ded1ace8efc6690.png',
         descricao: '',
         categoria: null,
         usuario: null
@@ -166,7 +166,11 @@ function CadastroProd() {
     }
 
     function back() {
+        if(produto.servico==true){
         history.push('/produtos')
+        } else{
+            history.push('/servicos')
+        }
     }
 
     return (
