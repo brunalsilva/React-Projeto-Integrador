@@ -32,7 +32,7 @@ function App() {
       <ToastContainer />
       <Router>
         <Switch>
-          <div style={{ minHeight: '100vh' }} className='background'>
+          <div className='background'>
             <Route path='/PorQueDandara'>
             <Navbar />
               <PorQueDandara />
