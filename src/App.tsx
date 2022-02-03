@@ -22,14 +22,15 @@ import store from './store/store';
 import SobreNos from './paginas/SobreNos/SobreNos';
 import FaleConosco from './paginas/FaleConosco/FaleConosco';
 import ListaServico from './components/servicos/listaservico/ListaServico';
+import ListaProdutoHome from './components/produtos/listaproduto/ListaProdutoHome';
 
 
 function App() {
   return (
+
     <Provider store={store}>
       <ToastContainer />
       <Router>
-        
         <Switch>
           <div style={{ minHeight: '100vh' }} className='background'>
             <Route path='/PorQueDandara'>

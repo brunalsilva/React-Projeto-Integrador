@@ -1,7 +1,36 @@
 .box-fundo-opaca-cadastro {
     background-color: #0a0a0a98;
-    height: 700px;
+    height: 650px;
     margin: 30px;
     border-radius: 20px;
     padding: 50px;
 }
+
+.separar {
+    margin-top: 10px !important;
+}
+
+.finalizar {
+    margin-top: 20px !important;
+}
+
+.cadastrar {
+    font-weight: bolder !important;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #f3e8ca !important;
+    font-size: 35px !important;
+}
+
+.cornome {
+    color: white!important
+}
+
+#demo-controlled-radio-buttons-group {
+    padding-top: 15px;
+}
+
+
+/*
+transform: translate(85%, 0%)
+justifyContent="center"  
+*/

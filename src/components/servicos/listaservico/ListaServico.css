@@ -10,11 +10,6 @@
     color: #f3e8ca !important;
 }
 
-.card-descricao {
-    font-family: 'Noto Sans', sans-serif !important;
-    color: #f3e8cad0 !important;
-}
-
 .card-secondary {
     font-family: 'Montserrat', sans-serif !important;
     color: #f3e8ca !important;
@@ -34,8 +29,4 @@
 .box-descricao {
     height: 70px;
     width: 180px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d0947da86da9bac9b0480e79e6cb276ba01f50e4

@@ -10,6 +10,8 @@ import User from '../../../models/User';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { Slide, toast } from 'react-toastify';
 import { CardActions, CardContent } from '@material-ui/core';
+import { red, pink, orange } from '@mui/material/colors';
+
 
 function CadastroProd() {
     let history = useHistory();
@@ -28,11 +30,11 @@ function CadastroProd() {
 
     const [produto, setProduto] = useState<Produto>({
         id: 0,
-        preco: null,
+        preco: 0,
         nome: '',
-        quantidade: null,
+        quantidade: 0,
         servico: true,
-        foto: '',
+        foto: 'https://64.media.tumblr.com/d8f8e63f3a8ae7b6e3208dc9c05508c8/39e32cd3cbe5c48a-af/s1280x1920/35d6209f3bc6349d2a194b718ded1ace8efc6690.png',
         descricao: '',
         categoria: null,
         usuario: null
@@ -51,7 +53,7 @@ function CadastroProd() {
 
     useEffect(() => {
         if (token == "") {
-             toast.error('Você precisa estar logado', {
+            toast.error('Você precisa estar logado', {
                 position: "bottom-right",
                 autoClose: 1500,
                 hideProgressBar: true,
@@ -62,7 +64,7 @@ function CadastroProd() {
                 progress: undefined,
                 transition: Slide,
             });
-            
+
             history.push("/login")
 
         }
@@ -122,13 +124,13 @@ function CadastroProd() {
         e.preventDefault()
 
         if (id !== undefined) {
-          
+
             put(`/produto`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
-            })     
-             toast.success('Atualizado com sucesso', {
+            })
+            toast.success('Atualizado com sucesso', {
                 position: "bottom-right",
                 autoClose: 1500,
                 hideProgressBar: true,
@@ -138,9 +140,9 @@ function CadastroProd() {
                 theme: "dark",
                 progress: undefined,
                 transition: Slide,
-                
+
             });
-            
+
         } else {
             post(`/produto`, produto, setProduto, {
                 headers: {
@@ -157,8 +159,8 @@ function CadastroProd() {
                 theme: "dark",
                 progress: undefined,
                 transition: Slide,
-                
-            }); 
+
+            });
 
         }
         back()
@@ -166,16 +168,20 @@ function CadastroProd() {
     }
 
     function back() {
+        if(produto.servico.toString() == "true"){
         history.push('/produtos')
+        } else{
+            history.push('/servicos')
+        }
     }
 
     return (
         <Container className="topo">
-            <Grid container alignItems="center" item xs={12}>
-                <Box marginX={20} sx={{ maxWidth: 300, minHeight: 400 }} display="flex" alignItems="center" justifyContent="center" className='box-fundo-opaca-cadastro'>
+            <Grid container justifyContent="center" alignItems="center" item xs={12}>
+                <Box marginX={10} sx={{ maxWidth: 300, minHeight: 400 }} display="flex" alignItems="center" justifyContent="center" className='box-fundo-opaca-cadastro'>
                     <form onSubmit={onSubmit}>
 
-                        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastro Produto/Serviço</Typography>
+                        <Typography variant="h3" color="textSecondary" component="h1" align="center" className='cadastrar'>Cadastrar Produto / Serviço</Typography>
 
                         <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth required />
                         <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descriçao" name="descricao" variant="outlined" margin="normal" fullWidth required />
@@ -192,13 +198,15 @@ function CadastroProd() {
                                 row
                                 aria-required
                             >
-                                <FormControlLabel value={true} control={<Radio />} label="Produto" />
-                                <FormControlLabel value={false} control={<Radio />} label="Serviço" />
+                                
+                                <FormControlLabel value={true} control={<Radio  sx={{color: orange,"&.Mui-checked": { color: orange[600] } }} /> } className = 'cornome' label="Produto" />
+                                <FormControlLabel value={false} control={<Radio  sx={{color: orange,"&.Mui-checked": { color: orange[600] } }} /> } className = 'cornome' label="Serviço" />
+
                             </RadioGroup>
                         </FormControl>
-                        <br></br>
-                        <FormControl>
-                            <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
+                        <Box className='separar'>
+                        <FormControl >                           
+                           <InputLabel  id="demo-simple-select-helper-label">Categoria </InputLabel>
                             <Select
                                 required
                                 labelId="demo-simple-select-helper-label"
@@ -214,13 +222,15 @@ function CadastroProd() {
                                     ))
                                 }
                             </Select>
-                            <FormHelperText>Escolha uma categoria para  o produto</FormHelperText>
-                            <Button type="submit" variant="contained" color="primary">
+                            <FormHelperText className='cornome'>Escolha uma categoria </FormHelperText>
+                            <Button type="submit" variant="contained" color="primary" className='finalizar' >
                                 Finalizar
                             </Button>
+                           
                         </FormControl>
+                        </Box>
                     </form>
-                </Box>
+                    </Box>
             </Grid>
         </Container>
     )
