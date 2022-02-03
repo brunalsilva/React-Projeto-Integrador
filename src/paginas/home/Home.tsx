@@ -21,15 +21,18 @@ function Home() {
                         <img src={banner} alt="banner com o nome dandara" className="banner" />
                         <img src={bannerHome} alt="banner com promoções de verão" className="bannerHome" />
                         <Typography gutterBottom component="h5" align="center" className='text'>
-                            {token === "" ? (
+                            
+                        </Typography>
+                        {token === "" ? (
                                 <ListaHomeEstatica />) : (
                                 <ListaProdutoHome />
                             )
                             }
-                        </Typography>
                     </Box>
                 </Grid>
+               
             </Grid>
+            
         </>
     );
 }
