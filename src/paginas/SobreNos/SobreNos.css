@@ -67,3 +67,7 @@
     font-size: 33px !important;
     margin-top: 35px !important;
 }
+
+.height-sobrenos {
+    min-height: 75vh;
+}

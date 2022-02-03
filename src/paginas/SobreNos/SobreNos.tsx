@@ -6,7 +6,7 @@ import './SobreNos.css';
 
 function SobreNos() {
     return (
-        <Grid container alignItems="center" justifyContent="center" item xs={12} direction="row">
+        <Grid container alignItems="center" justifyContent="center" item xs={12} direction="row" className='height-sobrenos'>
             <Grid container justifyContent='center' alignItems="center" item xs={12} >
                 <Typography className='titulo-sobrenos'>Conheça a nossa equipe de desenvolvimento
                 </Typography>
