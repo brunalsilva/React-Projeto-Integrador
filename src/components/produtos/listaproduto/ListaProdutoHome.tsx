@@ -84,7 +84,7 @@ function ListaProdutoHome() {
                     <Typography variant="body2" component="p" className='card-descricao'>
                       {produto.descricao}
                     </Typography>
-                    <Typography variant="body2" component="p" className='card-descricao'>
+                    <Typography variant="body2" component="p" className='card-categoria'>
                       {produto.categoria?.descricao}
                     </Typography>
                   </Box>
@@ -125,12 +125,14 @@ function ListaProdutoHome() {
                   <Typography variant="h5" component="h2" className='card-h2'>
                     {produto.nome}
                   </Typography>
+                    <Box className='box-descricao' >
                   <Typography variant="body2" component="p" className='card-descricao'>
                     {produto.descricao}
                   </Typography>
-                  <Typography variant="body2" component="p" className='card-descricao'>
+                    <Typography variant="body2" component="p" className='card-categoria'>
                     {produto.categoria?.descricao}
                   </Typography>
+                    </Box>
                   <Typography variant="body2" component="p" className='card-preco'>
                     <b>R$ {produto.preco}</b>
                   </Typography>

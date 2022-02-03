@@ -8,11 +8,8 @@ import './App.css';
 import Navbar from './components/static/navbar/Navbar';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-import ListaCategoria from './components/categorias/listacategoria/ListaCategoria';
 import ListaProduto from './components/produtos/listaproduto/ListaProduto';
 import CadastroProd from './components/produtos/cadastroProd/CadastroProd';
-import CadastroCategoria from './components/categorias/cadastroCategoria/CadastroCategoria';
-import DeletarCategoria from './components/categorias/deleterCategoria/DeletarCategoria';
 
 import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
 
@@ -22,17 +19,15 @@ import store from './store/store';
 import SobreNos from './paginas/SobreNos/SobreNos';
 import FaleConosco from './paginas/FaleConosco/FaleConosco';
 import ListaServico from './components/servicos/listaservico/ListaServico';
-import ListaProdutoHome from './components/produtos/listaproduto/ListaProdutoHome';
 
 
 function App() {
   return (
-
     <Provider store={store}>
       <ToastContainer />
       <Router>
         <Switch>
-          <div style={{ minHeight: '100vh' }} className='background'>
+          <div className='background'>
             <Route path='/PorQueDandara'>
             <Navbar />
               <PorQueDandara />
@@ -61,11 +56,6 @@ function App() {
             <Navbar />
               <FaleConosco />
             </Route>
-
-            <Route path='/categorias'>
-            <Navbar />
-              <ListaCategoria />
-            </Route>
             <Route path='/produtos'>
             <Navbar />
               <ListaProduto />
@@ -78,18 +68,6 @@ function App() {
             <Navbar />
               <CadastroProd />
             </Route>
-            <Route exact path='/formularioCategoria'>
-            <Navbar />
-              <CadastroCategoria />
-            </Route>
-            <Route exact path='/formularioCategoria/:id'>
-            <Navbar />
-              <CadastroCategoria />
-            </Route>
-            <Route path='/deletarCategoria/:id'>
-            <Navbar />
-              <DeletarCategoria />
-            </Route>
             <Route path='/deletarProduto/:id'>
             <Navbar />
               <DeletarProduto />
@@ -98,8 +76,6 @@ function App() {
             <Navbar />
               <ListaServico />
             </Route>
-
-
           </div>
         </Switch>
         <Footer />
