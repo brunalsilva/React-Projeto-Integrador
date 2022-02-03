@@ -8,10 +8,10 @@ function SobreNos() {
     return (
         <Grid container alignItems="center" justifyContent="center" item xs={12} direction="row">
             <Grid container justifyContent='center' alignItems="center" item xs={12} >
-                <Typography className='titulo-sobrenos'>Conheça a nossa equipe de desenvolvimento
+                <Typography align='center' className='titulo-sobrenos'>Conheça a nossa equipe de desenvolvimento
                 </Typography>
             </Grid> 
-            <Box display="flex" marginTop={6}>
+            <Box display="flex" flexWrap="wrap" justifyContent="center" marginTop={6}>
                 <Box padding={1} paddingLeft={2} display="flex" alignItems="center" justifyContent="center" flexDirection="row">
                     <Box display="flex" alignItems="center" justifyContent="center" className='box-fundo-opaca-sobrenos'>
                         <Box display="flex" alignItems="center" flexDirection="column">
