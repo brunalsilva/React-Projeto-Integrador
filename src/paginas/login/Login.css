@@ -14,13 +14,11 @@
     text-decoration: none;
 }
 
-
 /*cor do contorno do formulário quando clicado */
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: #f3e8ca !important;
 }
-
 
 /*cor do texto do formulário quando clicado */
 
@@ -50,13 +48,11 @@
     font-weight: bold !important;
 }
 
-
 /*cor do contorno do formulário quando clicado */
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: #f3e8cac2 !important;
 }
-
 
 /*cor do texto do formulário quando clicado */
 
@@ -67,16 +63,6 @@
 .MuiInputBase-input {
     color: #f3e8ca !important;
 }
-
-
-/* .MuiOutlinedInput-input {
-    border: 1px solid #D5D52C !important;
-    border-radius: 4px;
-}
-.MuiOutlinedInput-root:hover {
-    border-color:#D5D52C !important;
-    border-radius: 4px;
-} */
 
 .MuiOutlinedInput-notchedOutline {
     border-color: #f3e8cac2 !important;
@@ -103,5 +89,4 @@
 
 .inside-box-login {
     padding: 40px;
-    margin: 20px;
 }
