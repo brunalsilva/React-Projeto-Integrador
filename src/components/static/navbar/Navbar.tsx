@@ -13,9 +13,9 @@ import { Logout, PersonAdd } from "@mui/icons-material";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import AddIcon from '@mui/icons-material/Add';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useLocalStorage from "react-use-localstorage";
-
+import LoginIcon from '@mui/icons-material/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Slide, toast } from "react-toastify";
 
 
@@ -90,8 +90,8 @@ function Navbar() {
       theme: "dark",
       progress: undefined,
       transition: Slide,
-     
-  });
+
+    });
 
     history.push('/login')
   }
@@ -252,7 +252,7 @@ function Navbar() {
 
 
     return (
-      
+
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className="appbar">
           <Toolbar>
@@ -282,6 +282,7 @@ function Navbar() {
               <Box display="flex" height={30}>
 
                 <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+
                   <Search>
                     <SearchIconWrapper>
                       <SearchIcon className="color-appbar" />
@@ -294,20 +295,93 @@ function Navbar() {
                 </Box>
 
                 <ShoppingCartIcon className="color-appbar cart-icon" />
+
+
+
+
               </Box>
             </Box>
+
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+
+
+
+
+
+              <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+                <Tooltip title="Account settings">
+                  <IconButton
+                    className="drop-menu color-appbar"
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleClick}
+                    aria-controls={open ? 'account-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+
+
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                onClick={handleClose}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: 'visible',
+                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                    mt: 1.5,
+                    bgcolor: '#D5D52C',
+                    '& .MuiAvatar-root': {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    '&:before': {
+                      content: '""',
+                      display: 'block',
+                      position: 'absolute',
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: '#D5D52C',
+                      transform: 'translateY(-50%) rotate(45deg)',
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+              >
+                <MenuItem>
+                  <Link to="/login" className="text-decorator-none">
+                    <ListItemIcon>
+                      <LoginIcon />
+                    </ListItemIcon>
+                    Login
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/cadastrousuario" className="text-decorator-none">
+                    <ListItemIcon>
+                      < AccountCircleIcon />
+                    </ListItemIcon>
+                    Cadastre-se
+                  </Link>
+                </MenuItem>
+              </Menu>
+            </Box>
           </Toolbar>
-          <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon className="color-appbar" />
-              </SearchIconWrapper>
-              <StyledInputBase className="color-appbar"
-                placeholder="Buscar..."
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
-          </Box>
         </AppBar>
       </Box>
     );
