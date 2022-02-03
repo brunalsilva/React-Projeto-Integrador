@@ -20,10 +20,10 @@ function CadastroProd() {
     const [token, setToken] = useLocalStorage('token');
     const [idUser, setIdUser] = useLocalStorage('id');
 
-    const [value, setValue] = React.useState('female');
+    const [value, setValue] = React.useState('');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // alert(event.target.value)
+      
         setValue((event.target as HTMLInputElement).value);
         updatedProduto(event)
     };
