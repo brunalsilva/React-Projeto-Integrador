@@ -1,5 +1,6 @@
 import React from "react";
 import './Navbar.css';
+import logo from './logo.png';
 import { AppBar, Box, InputBase, Toolbar } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import { Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
@@ -16,7 +17,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useLocalStorage from "react-use-localstorage";
 
 import { Slide, toast } from "react-toastify";
-
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -63,8 +63,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function Navbar() {
 
-
-
   // drop down menu funcoes e estados - inicio
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -108,7 +106,7 @@ function Navbar() {
           <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
             <Box display="flex" alignItems="center">
               <Link to='/home' className='text-decoration-none' >
-                <img src="./logo.png" alt="" className="navbar-logo" />
+                <img src={logo} alt="" className="navbar-logo" />
               </Link>
               <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
                 <Link to='/home' className='text-decoration-none' >
@@ -261,7 +259,7 @@ function Navbar() {
             <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
               <Box display="flex" alignItems="center">
                 <Link to='/home' className='text-decoration-none' >
-                  <img src="./logo.png" alt="" className="navbar-logo" />
+                  <img src={logo} alt="" className="navbar-logo" />
                 </Link>
                 <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
                   <Link to='/home' className='text-decoration-none' >
