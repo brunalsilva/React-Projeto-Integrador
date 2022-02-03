@@ -62,7 +62,7 @@ function CadastroUsuario() {
                 theme: "dark",
                 progress: undefined,
                 transition: Slide,
-                
+
             });
         } else {
             toast.error('Dados inconsistentes. Verifique as informações de cadastro', {
@@ -75,37 +75,39 @@ function CadastroUsuario() {
                 theme: "dark",
                 progress: undefined,
                 transition: Slide,
-                
+
             });
         }
     }
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} className='ilustracao-cadastro'></Grid>
-            <Grid item xs={6} alignItems='center'>
-                <Box paddingX={10} paddingY={10}>
-                    <Box className='box-fundo-opaca'>
+            <Grid item lg={6} md={4} xs={1}>
+                <Box sx={{ display: { xs: 'none', md: 'block' } }} className='ilustracao-cadastro'></Box>
+            </Grid>
+            <Grid item lg={6} md={8} xs={12} alignItems='center'>
+                <Box sx={{ p: { md: "100px", sm: '100px' } }}>
+                    <Box className='box-fundo-opaca' sx={{height: {xs: '650px', sm: '550px'}}}>
                         <form onSubmit={onSubmit} className='inside-box-cadastro'>
                             <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='cadastrar'>Cadastre-se</Typography>
                             <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
                             <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
                             <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                             <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
-                            <Box marginTop={5} textAlign='center'>
+                            <Box marginTop={5} justifyContent='center' textAlign='center'>
                                 <Link to='/login' className='text-decorator-none'>
-                                    <Button variant='contained' color='secondary' className='btnCancelar'>
+                                    <Button variant='contained' color='secondary' className='btnresponsivo'>
                                         Cancelar
                                     </Button>
                                 </Link>
-                                <Button type='submit' variant='contained' color='primary'>
+                                <Button type='submit' variant='contained' color='primary' className='btnresponsivo'>
                                     Cadastrar
                                 </Button>
                             </Box>
                         </form>
                     </Box>
                 </Box>
-            </Grid>
-        </Grid>
+            </Grid >
+        </Grid >
     );
 }
 
