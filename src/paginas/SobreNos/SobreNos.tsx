@@ -6,13 +6,13 @@ import './SobreNos.css';
 
 function SobreNos() {
     return (
-        <Grid container alignItems="center" item xs={12}>
-            <Grid container justifyContent='center' alignItems="center" item xs={12}>
-                <Typography className='titulo-sobrenos'>Conheça a nossa equipe de desenvolvimento
+        <Grid container alignItems="center" justifyContent="center" item xs={12} direction="row" className='height-sobrenos'>
+            <Grid container justifyContent='center' alignItems="center" item xs={12} >
+                <Typography align='center' className='titulo-sobrenos'>Conheça a nossa equipe de desenvolvimento
                 </Typography>
             </Grid> 
-            <Box display="flex" marginTop={6}>
-                <Box padding={1} paddingLeft={2} display="flex" alignItems="center" justifyContent="space-evenly">
+            <Box display="flex" flexWrap="wrap" justifyContent="center" marginTop={6}>
+                <Box padding={1} paddingLeft={2} display="flex" alignItems="center" justifyContent="center" flexDirection="row">
                     <Box display="flex" alignItems="center" justifyContent="center" className='box-fundo-opaca-sobrenos'>
                         <Box display="flex" alignItems="center" flexDirection="column">
                             <Typography className="nome" component="div" noWrap >Bruna Silva</Typography>

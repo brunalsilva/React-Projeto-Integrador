@@ -20,10 +20,10 @@ export default function FaleConosco() {
                                    <form onSubmit={sendEmail}>
                                         <div>
                                              <div>
-                                                  <input type="text" autoFocus className="form-control form-contato" required placeholder="Nome" name="name"/>
+                                                  <input type="text" autoFocus className="form-control form-contato" required placeholder="nome" name="name"/>
                                              </div>
                                              <div >
-                                                  <input type="email" required placeholder="Seu email" name="email" className='form-contato'/>
+                                                  <input type="email" required placeholder="seu e-mail" name="email" className='form-contato'/>
                                              </div>
                                              <div>
                                                   <textarea required placeholder="mensagem" name="message" className='form-contato-mensagem form-control'></textarea >
