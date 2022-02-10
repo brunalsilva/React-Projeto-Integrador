@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans&display=swap');
-
 .box-fundo-opaca {
     background-color: #0a0a0a98;
     height: 530px;
@@ -23,11 +22,14 @@
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 3px;
+    text-align: justify !important;
     padding-bottom: 10px;
-    align-items: flex-start;
-    justify-content: left;
-    font-family: 'Noto Sans', sans-serif !important;
     color: #f3e8ca;
+    align-items: flex-start;
+}
+
+.textojustificado {
+    text-align: center;
 }
 
 .link-pqdandara {
